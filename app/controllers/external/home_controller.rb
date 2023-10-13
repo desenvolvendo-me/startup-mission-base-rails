@@ -1,4 +1,4 @@
-class External::HomeController < ApplicationController
+class External::HomeController < ExternalController
   def index
   end
 end

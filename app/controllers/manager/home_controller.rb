@@ -1,4 +1,4 @@
-class Manager::HomeController < ApplicationController
+class Manager::HomeController < InternalController
   def index
   end
 end
