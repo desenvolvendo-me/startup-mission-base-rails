@@ -10,9 +10,9 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this post", manager_post_path(post), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this post", edit_manager_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Delete this post", manager_post_path(post),
+    <%= link_to "Show", manager_post_path(post), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_manager_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Delete", manager_post_path(post),
                 data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} , class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
