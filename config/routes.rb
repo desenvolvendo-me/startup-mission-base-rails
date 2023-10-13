@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
-  get 'home/index'
+
+  namespace :manager do
+    get '', to: "home#index", as: :home
+  end
+
+  scope module: :external do
+    get '', to: "home#index", as: :home
+  end
 end
