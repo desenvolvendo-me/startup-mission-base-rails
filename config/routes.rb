@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :manager do
-    resources :posts
+    resources :goals
     get '', to: "home#index", as: :home
   end
 
