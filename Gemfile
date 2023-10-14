@@ -23,6 +23,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'binding_of_caller'
   gem 'annotate'
