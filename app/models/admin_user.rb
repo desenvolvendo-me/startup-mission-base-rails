@@ -4,8 +4,4 @@ class AdminUser < ApplicationRecord
   devise :database_authenticatable, 
          :recoverable, :rememberable, :validatable
 
-  def self.ransackable_attributes(auth_object = nil)
-    # Liste aqui os atributos que podem ser usados em buscas
-    %w[id name email] # Substitua com os atributos desejados
-  end
 end
