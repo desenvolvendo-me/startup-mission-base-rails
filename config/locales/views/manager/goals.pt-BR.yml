@@ -1,0 +1,27 @@
+pt-BR:
+  views:
+    manager:
+      goals:
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'apagar'
+        delete_confirm: 'Você tem certeza?'
+        index:
+          search: 'Pesquisar'
+          add_goal: "Criar objetivo"
+          actions: 'Ações'
+          action_1: 'Ação 1'
+          action_2: 'Ação 2'
+          pages:
+            showing: 'Mostrando'
+            of: 'de'
+          previous: 'anterior'
+          next: 'próximo'
+        save: 'Salvar'
+        edit_view:
+          title: 'Editando Objetivo'
+        show_view:
+          title: 'Detalhando Objetivo'
+
+        _form:
+          error: 'impediu esse objetivo de ser salvo'

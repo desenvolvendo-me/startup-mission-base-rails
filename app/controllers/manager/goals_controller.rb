@@ -25,7 +25,7 @@ class Manager::GoalsController < InternalController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to manager_goal_path(@goal), notice: "Goal was successfully created." }
+        format.html { redirect_to manager_goal_path(@goal), notice: t('controllers.manager.goals.create') }
         format.json { render :show, status: :created, location: @goal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Manager::GoalsController < InternalController
   def update
     respond_to do |format|
       if @goal.update(goal_params)
-        format.html { redirect_to manager_goal_path(@goal), notice: "Goal was successfully updated." }
+        format.html { redirect_to manager_goal_path(@goal), notice: t('controllers.manager.goals.update') }
         format.json { render :show, status: :ok, location: @goal }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class Manager::GoalsController < InternalController
     @goal.destroy
 
     respond_to do |format|
-      format.html { redirect_to manager_goals_path, notice: "Goal was successfully destroyed." }
+      format.html { redirect_to manager_goals_path, notice: t('controllers.manager.goals.destroy') }
       format.json { head :no_content }
     end
   end
