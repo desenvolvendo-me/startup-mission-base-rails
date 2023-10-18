@@ -1,9 +1,9 @@
 name: "Ruby on Rails CI"
-on: push
-#  pull_request:
-#    branches:
-#      - main
-#      - 'release/*'
+on:
+  pull_request:
+    branches:
+      - main
+      - 'release/*'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -25,10 +25,12 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag startup_mission
       - name: Set up database schema
-        run: docker run --network host startup_mission bin/rails db:migrate
+        run: docker run --network host -e DATABASE_URL=postgres://rails:password@localhost:5432/startup_mission_test startup_mission bin/rails db:migrate
       - name: Run Tests
-        run: docker run --network host startup_mission bin/rake
-
+        run: docker run --network host -e DATABASE_URL=postgres://rails:password@localhost:5432/startup_mission_test startup_mission bin/rake
+        env:
+          GITHUB_KEY: ${{ secrets.API_GITHUB_KEY }}
+#
 #  lint:
 #    runs-on: ubuntu-latest
 #    steps:
