@@ -18,6 +18,7 @@ gem 'foreman'
 gem 'devise'
 gem 'sassc'
 gem 'activeadmin'
+gem 'yaml'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
