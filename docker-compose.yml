@@ -1,0 +1,23 @@
+version: '3'
+services:
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: postgres
+  web:
+    build: .
+    command: rails server -b 0.0.0.0
+    volumes:
+      - .:/opt/app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - database
+    environment:
+      SELENIUM_DRIVER_URL: http://selenium:4444/wd/hub
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWD: postgres
+      POSTGRES_HOST: database
+
+  selenium:
+    image: selenium/standalone-chrome:latest
