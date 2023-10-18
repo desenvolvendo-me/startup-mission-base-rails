@@ -34,6 +34,7 @@ RSpec.feature "Manager Goals", type: :feature do
     visit manager_goal_path(Goal.first)
     click_link "Destroy"
 
+    page.accept_alert 'Are you sure?'
     expect(page).to have_text("Goal was successfully destroyed.")
     expect(page).not_to have_text("Learn Ruby")
   end
