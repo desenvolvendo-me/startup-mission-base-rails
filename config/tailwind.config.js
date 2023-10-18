@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     content: [
         './app/helpers/**/*.rb',
@@ -9,6 +11,10 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require('flowbite/plugin')
+        require('flowbite/plugin'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/container-queries'),
     ]
 }

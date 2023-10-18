@@ -13,7 +13,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
-gem "tailwindcss-rails", "~> 2.0"
+gem "tailwindcss-rails"
 gem 'foreman'
 gem 'devise'
 gem 'sassc'
