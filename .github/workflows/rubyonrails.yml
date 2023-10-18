@@ -1,6 +1,5 @@
 name: "Ruby on Rails CI"
-on:
-  on: push
+on: push
 #  pull_request:
 #    branches:
 #      - main
