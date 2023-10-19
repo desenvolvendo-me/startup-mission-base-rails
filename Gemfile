@@ -35,7 +35,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 4.0'
   gem 'rubocop', require: false
+  gem 'rubocop-capybara'
+  gem 'rubocop-factory_bot'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'rubycritic', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov'

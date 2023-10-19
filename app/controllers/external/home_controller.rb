@@ -1,4 +1,5 @@
-class External::HomeController < ExternalController
-  def index
+module External
+  class HomeController < ExternalController
+    def index; end
   end
 end

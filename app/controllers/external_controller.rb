@@ -1,3 +1,3 @@
 class ExternalController < ApplicationController
-  layout "external"
+  layout 'external'
 end

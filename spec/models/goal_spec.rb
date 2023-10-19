@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Goal, type: :model do
-
   describe 'validations' do
     it { should validate_presence_of(:name) }
   end
@@ -15,5 +14,4 @@ RSpec.describe Goal, type: :model do
       expect(Goal.count).to eq 1
     end
   end
-
 end
