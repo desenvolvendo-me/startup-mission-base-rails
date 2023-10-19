@@ -30,18 +30,17 @@ jobs:
         run: docker run --network host -e DATABASE_URL=postgres://rails:password@localhost:5432/startup_mission_test startup_mission bundle exec rspec --exclude-pattern 'spec/features/**/*_spec.rb' --format progress
         env:
           GITHUB_KEY: ${{ secrets.API_GITHUB_KEY }}
-#
-#  lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v3
-#      - name: Install Ruby and gems
-#        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
-#        with:
-#          bundler-cache: true
-#      # Add or replace any other lints here
-#      - name: Run RubyCritic score check
-#        run: bundle exec rake rubycritic:check_score
-#      - name: Lint Ruby files
-#        run: bin/rubocop --parallel
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
+      - name: Run RubyCritic score check
+        run: bundle exec rake rubycritic:check_score
+      - name: Lint Ruby files
+        run: bundle exec rubocop --parallel
