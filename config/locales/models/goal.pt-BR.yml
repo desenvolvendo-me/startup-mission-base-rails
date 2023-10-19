@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        goal:
+          attributes:
+            name:
+              blank: 'nao pode ficar em branco'
+    models:
+      goal:
+        one: 'Objetivo'
+        other: 'Objetivos'
+    attributes:
+      goal:
+        name: 'Nome'
+        description: 'Descrição'

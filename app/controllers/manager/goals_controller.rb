@@ -18,12 +18,11 @@ module Manager
 
     def create
       @goal = Goal.new(goal_params)
-
       respond_to do |format|
         if @goal.save
           format.html do
             redirect_to manager_goal_path(@goal),
-                        notice: 'Goal was successfully created.'
+                        notice: t('controllers.manager.goals.create')
           end
         else
           format.html do
@@ -39,7 +38,7 @@ module Manager
         if @goal.update(goal_params)
           format.html do
             redirect_to manager_goal_path(@goal),
-                        notice: 'Goal was successfully updated.'
+                        notice: t('controllers.manager.goals.update')
           end
         else
           format.html do
@@ -52,11 +51,10 @@ module Manager
 
     def destroy
       @goal.destroy
-
       respond_to do |format|
         format.html do
           redirect_to manager_goals_path,
-                      notice: 'Goal was successfully destroyed.'
+                      notice: t('controllers.manager.goals.destroy')
         end
       end
     end

@@ -1,0 +1,7 @@
+pt-BR:
+  controllers:
+    manager:
+      goals:
+        create: 'Objetivo cadastrado com sucesso.'
+        update: 'Objetivo atualizado com sucesso.'
+        destroy: 'Objetivo apagado com sucesso.'
