@@ -8,8 +8,8 @@ pt-BR:
               blank: 'nao pode ficar em branco'
     models:
       goal:
-        one: 'Objetivo'
-        other: 'Objetivos'
+        one: 'Meta'
+        other: 'Metas'
     attributes:
       goal:
         name: 'Nome'

@@ -19,7 +19,7 @@ RSpec.feature 'Manager Goals', type: :feature do
     fill_in 'Nome', with: 'Aprender Ruby on Rails'
     click_button 'Salvar'
 
-    expect(page).to have_text('Objetivo cadastrado com sucesso.')
+    expect(page).to have_text('Meta cadastrado com sucesso.')
     expect(page).to have_text('Aprender Ruby on Rails')
   end
 
@@ -34,7 +34,7 @@ RSpec.feature 'Manager Goals', type: :feature do
     click_link I18n.t('views.manager.goals.delete')
 
     page.accept_alert I18n.t('views.manager.goals.delete_confirm')
-    expect(page).to have_text('Objetivo apagado com sucesso.')
+    expect(page).to have_text('Meta apagado com sucesso.')
     expect(page).not_to have_text('Aprender Ruby')
   end
 end

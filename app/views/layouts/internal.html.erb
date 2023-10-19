@@ -114,17 +114,17 @@
 <div class="p-4 sm:ml-64">
   <% if notice.present? %>
     <div id="sticky-banner" tabindex="-1" class="flex justify-between w-full p-4 border-b mb-4
-        <%= 'bg-green-50 text-green-600 border-green-200' if notice.include?('created') %>
-        <%= 'bg-yellow-50 text-yellow-600 border-yellow-200' if notice.include?('updated') %>
-        <%= 'bg-red-50 text-red-600 border-red-200' if notice.include?('destroyed') %>
+        <%= 'bg-green-50 text-green-600 border-green-200' if notice.include?('cadastrado') %>
+        <%= 'bg-yellow-50 text-yellow-600 border-yellow-200' if notice.include?('atualizado') %>
+        <%= 'bg-red-50 text-red-600 border-red-200' if notice.include?('apagado') %>
         dark:border-gray-600">
       <div class="flex items-center mx-auto">
         <!-- Ícone baseado no tipo de mensagem -->
-        <% if notice.include?('created') %>
+        <% if notice.include?('cadastrado') %>
           <i class="fa fa-circle-plus"></i>
-        <% elsif notice.include?('updated') %>
+        <% elsif notice.include?('atualizado') %>
           <i class="fa fa-square-pen"></i>
-        <% elsif notice.include?('destroyed') %>
+        <% elsif notice.include?('apagado') %>
           <i class="fa fa-trash-can"></i>
         <% end %>
         <p class="flex items-center text-sm font-normal ml-2">

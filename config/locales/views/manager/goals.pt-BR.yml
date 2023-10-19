@@ -8,7 +8,7 @@ pt-BR:
         delete_confirm: 'Você tem certeza?'
         index:
           search: 'Pesquisar'
-          add_goal: "Criar objetivo"
+          add_goal: "Criar meta"
           actions: 'Ações'
           action_1: 'Ação 1'
           action_2: 'Ação 2'
@@ -19,9 +19,9 @@ pt-BR:
           next: 'próximo'
         save: 'Salvar'
         edit_view:
-          title: 'Editando Objetivo'
+          title: 'Editando Meta'
         show_view:
-          title: 'Detalhando Objetivo'
+          title: 'Detalhando Meta'
 
         _form:
-          error: 'impediu esse objetivo de ser salvo'
+          error: 'impediu esse meta de ser salva'
