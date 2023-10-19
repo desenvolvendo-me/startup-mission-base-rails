@@ -5,7 +5,7 @@ on: push
 #      - main
 #      - 'release/*'
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -25,14 +25,20 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.5'
-      - name: Install dependencies
-        run: bundle install
+          bundler: default
+          bundler-cache: true
       - name: Set up Database
         run: bin/rails db:migrate
       - name: Run Tests
         run: bundle exec rspec --exclude-pattern 'spec/features/**/*_spec.rb' --format progress
+      - uses: joshmfrankel/simplecov-check-action@main
+        with:
+          minimum_suite_coverage: 85
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Show Coverage directory
+        run: ls -al coverage/
 
-  lint:
+  Lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

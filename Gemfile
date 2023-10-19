@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov'
+  gem 'simplecov-json'
 end
 
 group :development do
