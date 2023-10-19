@@ -1,8 +1,23 @@
-# CONFIGURATION
+# QUALIDADE
+```
+Teste, ativado
+Lint, ativado
+Cobertura, 80%
+Score, 90
+```
+## ANÁLISE
+### Teste e Cobertura
+    bundle exec rspec
+### Lint
+    bundle exec rubocop
+### Score
+    bundle exec rubycritic
+
+# CONFIGURAÇÃO
 ## DOCKER
-### CREATING
+### CRIANDO
 docker-compose up --build
-### RUNNING
+### EXECUTANDO
 docker compose up
 docker-compose run web rails db:create
 docker-compose run web rails db:migrate
