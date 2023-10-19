@@ -36,7 +36,7 @@ jobs:
           minimum_suite_coverage: 85
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Show Coverage directory
-        run: ls -al coverage/
+        run: cat coverage/coverage.json
 
   Lint:
     runs-on: ubuntu-latest
