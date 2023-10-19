@@ -1,3 +1,3 @@
 class InternalController < ApplicationController
-  layout "internal"
+  layout 'internal'
 end

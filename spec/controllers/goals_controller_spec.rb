@@ -1,9 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe Manager::GoalsController, type: :controller do
+RSpec.describe Manager::GoalsController,
+               type: :controller do
   let(:goal) { create(:goal) }
-  let(:valid_attributes) { { name: "New name", description: "New description" } }
-  let(:invalid_attributes) { { name: "", description: "" } }
+  let(:valid_attributes) do
+    { name: 'New name',
+      description: 'New description' }
+  end
+  let(:invalid_attributes) do
+    { name: '', description: '' }
+  end
 
   describe 'GET #index' do
     it 'assigns all goals as @goals' do
@@ -36,21 +42,24 @@ RSpec.describe Manager::GoalsController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new Goal' do
-        expect {
-          post :create, params: { goal: valid_attributes }
-        }.to change(Goal, :count).by(1)
+        expect do
+          post :create,
+               params: { goal: valid_attributes }
+        end.to change(Goal, :count).by(1)
       end
 
       it 'redirects to the created goal' do
-        post :create, params: { goal: valid_attributes }
+        post :create,
+             params: { goal: valid_attributes }
         expect(response).to redirect_to(manager_goal_path(Goal.last))
       end
     end
 
     context 'with invalid params' do
       it 're-renders the "new" template' do
-        post :create, params: { goal: invalid_attributes }
-        expect(response).to render_template("new")
+        post :create,
+             params: { goal: invalid_attributes }
+        expect(response).to render_template('new')
       end
     end
   end
@@ -58,21 +67,27 @@ RSpec.describe Manager::GoalsController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       it 'updates the requested goal' do
-        put :update, params: { id: goal.id, goal: valid_attributes }
+        put :update,
+            params: { id: goal.id,
+                      goal: valid_attributes }
         goal.reload
-        expect(goal.name).to eq("New name")
+        expect(goal.name).to eq('New name')
       end
 
       it 'redirects to the goal' do
-        put :update, params: { id: goal.id, goal: valid_attributes }
+        put :update,
+            params: { id: goal.id,
+                      goal: valid_attributes }
         expect(response).to redirect_to(manager_goal_path(goal))
       end
     end
 
     context 'with invalid params' do
       it 're-renders the "edit" template' do
-        put :update, params: { id: goal.id, goal: invalid_attributes }
-        expect(response).to render_template("edit")
+        put :update,
+            params: { id: goal.id,
+                      goal: invalid_attributes }
+        expect(response).to render_template('edit')
       end
     end
   end
@@ -80,9 +95,9 @@ RSpec.describe Manager::GoalsController, type: :controller do
   describe 'DELETE #destroy' do
     it 'destroys the requested goal' do
       goal = create(:goal)
-      expect {
+      expect do
         delete :destroy, params: { id: goal.id }
-      }.to change(Goal, :count).by(-1)
+      end.to change(Goal, :count).by(-1)
     end
 
     it 'redirects to the goals list' do

@@ -1,4 +1,5 @@
-class Manager::HomeController < InternalController
-  def index
+module Manager
+  class HomeController < InternalController
+    def index; end
   end
 end
