@@ -1,4 +1,4 @@
-<%= form_with(model: @goal, url: manager_goal_path(@goal), class: 'relative') do |form| %>
+<%= simple_form_for @goal, url: manager_goal_path, html: { class: 'relative' } do |form| %>
   <div class="flex justify-between items-center mb-4">
     <h1 class="font-bold text-4xl"><%= t('views.manager.goals.edit_view.title') %></h1>
     <div>
