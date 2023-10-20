@@ -51,8 +51,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_124315) do
     t.string "name"
     t.string "description"
     t.string "status"
+    t.bigint "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
 end
