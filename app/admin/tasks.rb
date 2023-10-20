@@ -1,4 +1,5 @@
 ActiveAdmin.register Task do
+  menu parent: 'Gestão'
   permit_params :name, :description, :status
 
   index do
