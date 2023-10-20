@@ -34,21 +34,20 @@
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-          <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+          <span class="block text-sm text-gray-900 dark:text-white">João da Silva</span>
+          <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">joaozinhodev@desenvolvendome.com</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><%= t('views.layouts.internal.settings') %></a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-              out</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><%= t('views.layouts.internal.sign_out') %></a>
           </li>
         </ul>
       </div>
       <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
+        <span class="sr-only"><%= t('views.layouts.sr-only.open_menu') %></span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
@@ -67,8 +66,8 @@
             <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
             <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
           </svg>
-          <span class="flex-1 ml-3 whitespace-nowrap">Dashboard</span>
-          <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">New</span>
+          <span class="flex-1 ml-3 whitespace-nowrap"><%= t('views.layouts.internal.dashboard') %></span>
+          <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"><%= t 'views.layouts.internal.new' %></span>
         <% end %>
       </li>
       <li>
@@ -99,7 +98,7 @@
                 <path id="secondary" d="M18.7,19.38A1,1,0,0,1,17.92,21H6.08a1,1,0,0,1-.78-1.62L12,11Z" style="fill: #2ca9bc; stroke-width: 2;"></path>
                 <path id="primary" d="M12,11V3m6,1H12V8h6L17,6Zm-6,7L5.3,19.38A1,1,0,0,0,6.08,21H17.92a1,1,0,0,0,.78-1.62Z" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
               </svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Meta</span>
+              <span class="flex-1 ml-3 whitespace-nowrap"><%= t('views.layouts.internal.goal') %></span>
             <% end %>
           </li>
         </ul>
