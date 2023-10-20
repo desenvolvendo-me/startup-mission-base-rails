@@ -4,7 +4,7 @@ pt-BR:
       goals:
         show: 'Mostrar'
         edit: 'Editar'
-        delete: 'apagar'
+        delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
         index:
           search: 'Pesquisar'
