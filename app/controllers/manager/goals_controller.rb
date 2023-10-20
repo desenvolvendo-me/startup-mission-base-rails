@@ -66,8 +66,7 @@ module Manager
     end
 
     def goal_params
-      params.require(:goal).permit(:name,
-                                   :description)
+      params.require(:goal).permit(:name, :description, :status)
     end
   end
 end

@@ -1,2 +1,5 @@
 <%= form.input :name, placeholder: ' ' %>
+<%= form.input :status, placeholder: ' ', as: :select, collection: Goal.statuses.keys.map { |key|
+  [I18n.t("enum.statuses.#{key}"), key]
+} %>
 <%= form.input :description, placeholder: ' ', as: :text, input_html: { rows: '10', cols: '50' } %>
