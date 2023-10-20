@@ -1,3 +1,11 @@
+# OBJETIVO
+Criar uma arquitetura de referência para se tornar uma máquina de criação de microsaas juntos com os alunos.
+
+Para isso vamos deixar a criação de um projeto tanto facil quanto o https://bubble.io/.
+
+Não queremos ser um NoCode, queremos facilitar a vida do Programador em criar novas ideias.
+
+
 # QUALIDADE
 ```
 Teste, ativado

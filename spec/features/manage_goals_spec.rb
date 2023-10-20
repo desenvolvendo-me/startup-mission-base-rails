@@ -16,11 +16,16 @@ RSpec.feature 'Manager Goals', type: :feature do
   scenario 'create goal' do
     visit new_manager_goal_path
 
-    fill_in 'Nome', with: 'Aprender Ruby on Rails'
+    find('#goal_name', match: :first).set('Aprender Ruby on Rails')
+    click_button I18n.t('views.manager.goals.add_task')
+    all(:css, '[id$=name]')[1].set('Curso de Ruby')
+    all(:css, '[id$=name]')[2].set('Curso de Rails')
     click_button I18n.t('views.manager.goals.save')
 
     expect(page).to have_text('Meta cadastrada com sucesso.')
     expect(page).to have_text('Aprender Ruby on Rails')
+    expect(page).to have_text('Curso de Ruby')
+    expect(page).to have_text('Curso de Rails')
   end
 
   scenario 'show goal' do

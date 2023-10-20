@@ -12,6 +12,7 @@ module Manager
 
     def new
       @goal = Goal.new
+      @goal.tasks.build
     end
 
     def edit; end
@@ -66,7 +67,10 @@ module Manager
     end
 
     def goal_params
-      params.require(:goal).permit(:name, :description, :status)
+      params.require(:goal).permit(:name,
+                                   :description, :status,
+                                   tasks_attributes:
+                                     %i[id name description status _destroy])
     end
   end
 end

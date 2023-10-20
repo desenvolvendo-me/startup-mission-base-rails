@@ -24,3 +24,5 @@ pt-BR:
           title: 'Detalhando Meta'
         _form:
           error: 'impediu esse meta de ser salva'
+        add_task: 'Adicionar Tarefa'
+        remove_task: 'Remover Tarefa'
