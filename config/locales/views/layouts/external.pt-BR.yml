@@ -1,0 +1,9 @@
+pt-BR:
+  views:
+    layouts:
+      external:
+        home: "Início"
+        about: "Sobre"
+        services: "Serviços"
+        pricing: "Valores"
+        contact: "Contato"

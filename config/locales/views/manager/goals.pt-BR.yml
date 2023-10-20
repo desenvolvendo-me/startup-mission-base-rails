@@ -22,6 +22,5 @@ pt-BR:
           title: 'Editando Meta'
         show_view:
           title: 'Detalhando Meta'
-
         _form:
           error: 'impediu esse meta de ser salva'
