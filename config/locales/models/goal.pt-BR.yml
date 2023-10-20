@@ -14,3 +14,6 @@ pt-BR:
       goal:
         name: 'Nome'
         description: 'Descrição'
+        status: 'Situação'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
