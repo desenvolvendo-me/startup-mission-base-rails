@@ -12,7 +12,7 @@ ActiveAdmin.register Task do
     actions
   end
 
-  show :title => proc { |task| task.name } do
+  show title: proc { |task| task.name } do
     attributes_table do
       row :name
       row :description
@@ -22,7 +22,7 @@ ActiveAdmin.register Task do
     end
   end
 
-  form :title => :name do |f|
+  form title: :name do |f|
     f.inputs do
       f.input :name
       f.input :description
