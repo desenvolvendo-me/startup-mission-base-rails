@@ -19,7 +19,8 @@ ActiveAdmin.register Task do
       row :name
       row :description
       row :status do |task|
-        status_tag I18n.t("enum.statuses.#{task.status}"), class: task.status.to_s
+        status_tag I18n.t("enum.statuses.#{task.status}"),
+                   class: task.status.to_s
       end
     end
   end
@@ -29,7 +30,9 @@ ActiveAdmin.register Task do
       f.input :goal
       f.input :name
       f.input :description
-      f.input :status, as: :select, collection: Task.statuses.keys.map { |key| [I18n.t("enum.statuses.#{key}"), key] }
+      f.input :status, as: :select, collection: Task.statuses.keys.map { |key|
+                                                  [I18n.t("enum.statuses.#{key}"), key]
+                                                }
     end
     f.actions
   end
