@@ -142,8 +142,8 @@ pt-BR:
       blog: "Blog"
     menu:
       configuration: "Configuração"
-      management: "Administração"
-      distribution: "Gestão de Distribuição"
+      administration: "Administração"
+      management: "Gestão"
     notice:
       ticket:
         email: "Email Enviado!"

@@ -4,14 +4,19 @@ pt-BR:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
-          has_one: "Não é possível excluir o registro pois existe um %{record} dependente"
-          has_many: "Não é possível excluir o registro pois existem %{record} dependentes"
+          has_one: 'Não é possível excluir o registro pois existe um %{record} dependente'
+          has_many: 'Não é possível excluir o registro pois existem %{record} dependentes'
     models:
       admin_user:
-        one: "Administrador"
-        other: "Administradores"
+        one: 'Administrador'
+        other: 'Administradores'
       comment:
-        one: "Comentário"
-        other: "Comentários"
-
-
+        one: 'Comentário'
+        other: 'Comentários'
+  enum:
+    statuses:
+      backlog: 'Fila'
+      todo: 'Fazer'
+      doing: 'Fazendo'
+      block: 'Travado'
+      done: 'Feito'
