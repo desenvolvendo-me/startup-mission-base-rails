@@ -503,6 +503,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
   rails_layout
+  ransack (~> 4.0)
   rspec-benchmark
   rspec-rails (~> 4.0)
   rubocop
