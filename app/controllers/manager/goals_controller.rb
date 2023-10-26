@@ -5,7 +5,8 @@ module Manager
                            destroy]
 
     def index
-      @goals = Goal.all
+      @q = Goal.ransack(params[:q])
+      @goals = @q.result(distinct: true)
     end
 
     def show; end
