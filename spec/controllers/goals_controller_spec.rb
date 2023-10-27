@@ -18,6 +18,36 @@ RSpec.describe Manager::GoalsController,
     end
   end
 
+  describe 'GET #index with search' do
+    it 'returns the goals searched correctly' do
+      # DADO
+      goal1 = create(:goal, name: 'Learn Python', description: 'learn dataframes and data analisys')
+      goal2 = create(:goal, name: 'Study front-end framework', description: 'learn tailwind to create robusts pages')
+      task = create(:task, name: 'pandas', description: 'learn how to import and use pandas library as pd', goal: goal1)
+
+      #QUANDO
+      get :index, params: { q: { name_or_description_or_tasks_name_or_tasks_description_cont: 'dataframes and data analisys' } }
+
+      # ENTÃO
+      expect(assigns(:goals)).to include(goal1)
+      expect(assigns(:goals)).to_not include(goal2)
+    end
+
+    it 'excludes non-matching results' do
+      create(:goal, name: 'Non-Matching Goal')
+
+      get :index, params: { q: { name_or_description_or_tasks_name_or_tasks_description_cont: 'dataframes and data analisys' } }
+
+      expect(assigns(:goals)).to be_empty
+    end
+
+    it 'renders the index template' do
+      get :index, params: { q: { name_or_description_or_tasks_name_or_tasks_description_cont: 'Search Nothing' } }
+
+      expect(response).to render_template(:index)
+    end
+  end
+
   describe 'GET #show' do
     it 'assigns the requested goal as @goal' do
       get :show, params: { id: goal.id }
