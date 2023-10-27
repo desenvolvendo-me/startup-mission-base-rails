@@ -8,7 +8,6 @@ Não queremos ser um NoCode, queremos facilitar a vida do Programador em criar n
 
 Já que nossos alunos querem ser programadores e não empresários
 
-
 # QUALIDADE
 ```
 Teste, ativado
