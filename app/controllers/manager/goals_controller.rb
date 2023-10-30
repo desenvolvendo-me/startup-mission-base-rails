@@ -5,7 +5,7 @@ module Manager
                            destroy]
 
     def index
-      @goals = Goal.all
+      @goals = Goal.page(params[:page]).per(5)
     end
 
     def show; end
