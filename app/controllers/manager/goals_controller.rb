@@ -5,7 +5,9 @@ module Manager
                            destroy]
 
     def index
-      @goals = Goal.page(params[:page]).per(5)
+      @q = Goal.ransack(params[:q])
+      @goals = @q.result(distinct: true)
+      @goals = @goals.page(params[:page]).per(5)
     end
 
     def show; end

@@ -7,13 +7,16 @@ ruby '2.7.5'
 
 gem 'activeadmin'
 gem 'bootsnap', require: false
+gem 'chartkick', '~> 3.3.0'
 gem 'devise'
 gem 'foreman'
+gem 'groupdate'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
+gem 'ransack', '~> 4.0'
 gem 'sassc'
 gem 'simple_form'
 gem 'simple_form-tailwind'
@@ -31,7 +34,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'cpf_faker'
   gem 'database_cleaner'
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'pry-byebug'
