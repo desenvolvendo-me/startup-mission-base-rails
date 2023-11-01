@@ -6,11 +6,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.5'
 
 gem 'activeadmin'
-gem "chartkick", '~> 3.3.0'
-gem 'groupdate'
 gem 'bootsnap', require: false
+gem 'chartkick', '~> 3.3.0'
 gem 'devise'
 gem 'foreman'
+gem 'groupdate'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.2'
