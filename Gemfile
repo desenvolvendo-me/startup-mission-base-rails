@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.5'
 
-gem 'activeadmin'
+gem 'activeadmin', '~> 2.14'
 gem 'bootsnap', require: false
 gem 'chartkick', '~> 3.3.0'
 gem 'devise'
@@ -16,7 +16,7 @@ gem 'jbuilder'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
-gem 'ransack', '~> 4.0'
+gem 'ransack', '< 4.0'
 gem 'sassc'
 gem 'simple_form'
 gem 'simple_form-tailwind'
