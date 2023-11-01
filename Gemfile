@@ -6,6 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.5'
 
 gem 'activeadmin'
+gem "chartkick", '~> 3.3.0'
+gem 'groupdate'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'foreman'
