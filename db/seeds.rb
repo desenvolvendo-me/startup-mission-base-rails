@@ -2,9 +2,9 @@ if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
-                      description: 'Quero criar 10 algoritmos em até 3 meses', status: 'doing')
+                      description: 'Quero criar 10 algoritmos em até 3 meses', status: 'done')
   Task.create(name: '1ª agoritmo', description: 'Criar o algoritmo bubble sort',
-              status: "doing", goal: goal1)
+              status: "done", goal: goal1)
 
   goal2 = Goal.create(name: 'Aprender Framework Rails',
                       description: 'Quero criar 5 projetos simples em até 3 meses', status: 'todo')
@@ -13,7 +13,7 @@ if Rails.env.development?
 
   goal3 = Goal.create(name: 'Aprender Linguagem Python',
                       description: 'Quero criar 5 scripts úteis em até 2 meses', status: 'doing')
-  Task.create(name: '1º script', description: 'Criar um script de automação de tarefas',
+  Task.create(name: '1º script', description: 'Criar um algoritmo de automação de tarefas',
               status: "doing", goal: goal3)
 
   goal4 = Goal.create(name: 'Aprender Banco de Dados SQL',
@@ -22,9 +22,9 @@ if Rails.env.development?
               status: "todo", goal: goal4)
 
   goal5 = Goal.create(name: 'Aprender Front-End Development',
-                      description: 'Quero construir um portfólio online em 2 semanas', status: 'doing')
+                      description: 'Quero construir um portfólio online em 2 semanas', status: 'done')
   Task.create(name: 'Página inicial', description: 'Criar a página inicial do meu portfólio',
-              status: "doing", goal: goal5)
+              status: "done", goal: goal5)
 
   goal6 = Goal.create(name: 'Aprender Linguagem JavaScript',
                       description: 'Quero dominar os conceitos básicos em 1 mês', status: 'todo')
@@ -52,9 +52,9 @@ if Rails.env.development?
               status: "todo", goal: goal10)
 
   goal11 = Goal.create(name: 'Aprender Machine Learning',
-                       description: 'Quero criar um modelo de machine learning em 2 meses', status: 'doing')
+                       description: 'Quero criar um modelo de machine learning em 2 meses', status: 'done')
   Task.create(name: 'Coleta de dados', description: 'Coletar dados para treinar o modelo',
-              status: "doing", goal: goal11)
+              status: "done", goal: goal11)
 
   goal12 = Goal.create(name: 'Aprender Redes de Computadores',
                        description: 'Quero configurar uma rede local em 3 semanas', status: 'todo')
@@ -72,8 +72,8 @@ if Rails.env.development?
               status: "doing", goal: goal14)
 
   goal15 = Goal.create(name: 'Aprender Inteligência Artificial',
-                       description: 'Quero criar um chatbot em 1 mês', status: 'todo')
+                       description: 'Quero criar um chatbot em 1 mês', status: 'done')
   Task.create(name: 'Treinamento do modelo', description: 'Treinar um modelo de chatbot',
-              status: "todo", goal: goal15)
+              status: "done", goal: goal15)
 
 end
