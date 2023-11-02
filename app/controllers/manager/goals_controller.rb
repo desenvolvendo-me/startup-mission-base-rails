@@ -7,7 +7,7 @@ module Manager
     def index
       @q = Goal.ransack(params[:q])
       @goals = @q.result(distinct: true)
-      @goals = @goals.page(params[:page]).per(3)
+      @goals = @goals.page(params[:page]).per(4)
     end
 
     def show; end
