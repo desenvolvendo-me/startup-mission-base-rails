@@ -5,6 +5,7 @@ pt-BR:
         show: 'Mostrar'
         edit: 'Editar'
         delete: 'Apagar'
+        done: 'Finalizar'
         delete_confirm: 'Você tem certeza?'
         index:
           search: 'Pesquisar'

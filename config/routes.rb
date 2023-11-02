@@ -5,6 +5,13 @@ Rails.application.routes.draw do
 
   namespace :manager do
     resources :goals
+    namespace :goals do
+      namespace :done do
+        post :index
+        post :show
+      end
+    end
+
     get '', to: 'home#index', as: :home
   end
 
