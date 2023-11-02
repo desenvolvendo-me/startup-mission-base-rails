@@ -10,8 +10,8 @@ pt-BR:
           search: 'Pesquisar'
           add_goal: "Criar meta"
           actions: 'Ações'
-          action_1: 'Ação 1'
-          action_2: 'Ação 2'
+          action_1: 'Concluídas'
+          action_2: 'Não concluídas'
           pages:
             showing: 'Mostrando'
             of: 'de'
