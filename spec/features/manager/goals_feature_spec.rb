@@ -13,6 +13,18 @@ RSpec.feature 'Manager Goals', type: :feature do
     expect(page).to have_text('Aprender Rails')
   end
 
+  scenario 'list goals action done' do
+    visit manager_goals_path
+
+    expect(page).to have_text('Fazer')
+
+    click_button "#{convert_to_id(Goal.first)}-dropdown-button"
+    click_link I18n.t('views.manager.goals.done')
+    page.accept_alert I18n.t('views.manager.goals.delete_confirm')
+
+    expect(page).to have_text('Feito')
+  end
+
   scenario 'create goal' do
     visit new_manager_goal_path
 
@@ -26,6 +38,15 @@ RSpec.feature 'Manager Goals', type: :feature do
     expect(page).to have_text('Aprender Ruby on Rails')
     expect(page).to have_text('Curso de Ruby')
     expect(page).to have_text('Curso de Rails')
+  end
+
+  scenario 'show goal action done' do
+    visit manager_goal_path(Goal.first)
+
+    click_link I18n.t('views.manager.goals.done')
+    page.accept_alert I18n.t('views.manager.goals.delete_confirm')
+
+    expect(page).to have_text('Feito')
   end
 
   scenario 'show goal' do
