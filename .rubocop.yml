@@ -27,6 +27,9 @@ Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Lint/MissingSuper:
+  Enabled: false
+
 # Escrevemos mais linhas em arquivos de teste do que em arquivos de
 # código, então é importante poder ter esses arquivos do tamanho necessário
 Metrics/BlockLength:

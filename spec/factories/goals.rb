@@ -17,7 +17,7 @@ FactoryBot.define do
     status { 'todo' }
 
     trait :with_tasks do
-      after(:create) do |goal, evaluator|
+      after(:create) do |goal, _evaluator|
         create_list(:task, 3, goal: goal)
       end
     end

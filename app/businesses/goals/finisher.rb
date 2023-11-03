@@ -1,6 +1,6 @@
 module Goals
   class Finisher < BusinessApplication
-    def initialize(goal = nil)
+    def initialize(goal)
       @goal = goal
     end
 

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Goals::Finisher do
-
   describe 'goal' do
     context 'done' do
       it 'with task' do
