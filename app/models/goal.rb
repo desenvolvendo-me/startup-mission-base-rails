@@ -21,6 +21,12 @@ class Goal < ApplicationRecord
   accepts_nested_attributes_for :tasks, allow_destroy: true,
                                         reject_if: :all_blank
 
+  after_update :after_update
+
+  def after_update
+    Goals::Finisher.call(self)
+  end
+
   def to_s
     name
   end

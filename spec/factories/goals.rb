@@ -15,5 +15,11 @@ FactoryBot.define do
     name { FFaker::Name.name }
     description { FFaker::Lorem.sentence }
     status { 'todo' }
+
+    trait :with_tasks do
+      after(:create) do |goal, _evaluator|
+        create_list(:task, 3, goal: goal)
+      end
+    end
   end
 end
