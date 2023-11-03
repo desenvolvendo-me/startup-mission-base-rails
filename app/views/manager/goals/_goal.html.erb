@@ -1,5 +1,6 @@
 <tr class="border-b dark:border-gray-700" id="<%= dom_id goal %>">
-  <td class="px-4 py-3"><input type="checkbox" data-goals--index-target="checkbox" value="<%= goal.id %>">
+  <td class="px-4 py-3">
+    <input type="checkbox" id="<%= convert_to_id(goal) %>-checkbox" data-goals--index-target="checkbox" value="<%= goal.id %>">
   </td>
   <td class="px-4 py-3"> <%= goal.name %></td>
   <td class="px-4 py-3"> <%= goal.description %></td>
@@ -25,8 +26,8 @@
                       data: { turbo_method: :delete, turbo_confirm: t('views.manager.goals.delete_confirm') }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
         </div>
         <div class="py-1">
-          <%= link_to t('views.manager.goals.done'), manager_goals_done_index_path(goal_id: goal),
-                      data: { turbo_method: :post, turbo_confirm: t('views.manager.goals.delete_confirm') }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
+          <%= link_to t('views.manager.goals.done'), manager_goals_done_index_path(goal_id: goal), data: { turbo_method: :post },
+                      class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
         </div>
       <% end %>
     </div>

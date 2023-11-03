@@ -51,9 +51,9 @@
                 </li>
               </ul>
               <div class="py-1">
-                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                  <button data-action="goals--index#finishingMany"> <%= t('views.manager.goals.index.action_3') %></button>
-                </a>
+                <%= link_to t('views.manager.goals.index.action_3'), '#',
+                            "data-action": "click->goals--index#finishingMany",
+                            class: 'button-block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
               </div>
             </div>
           </div>
