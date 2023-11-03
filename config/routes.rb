@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       namespace :done do
         post :index
         post :show
+        post :many
       end
     end
 

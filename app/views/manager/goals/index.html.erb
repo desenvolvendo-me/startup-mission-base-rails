@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" data-controller="goals--index" data-goals--index-finish-endpoint-value="<%= manager_goals_done_many_path %>">
   <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
     <!-- Start coding here -->
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg">
@@ -44,10 +44,15 @@
                     <%= t('views.manager.goals.index.action_1') %>
                   </a>
                 </li>
+                <li>
+                  <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <%= t('views.manager.goals.index.action_2') %>
+                  </a>
+                </li>
               </ul>
               <div class="py-1">
                 <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                  <%= t('views.manager.goals.index.action_2') %>
+                  <button data-action="goals--index#finishingMany"> <%= t('views.manager.goals.index.action_3') %></button>
                 </a>
               </div>
             </div>
@@ -58,6 +63,7 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
+            <th scope="col" class="px-4 py-3"></th>
             <th scope="col" class="px-4 py-3"><%= t('activerecord.attributes.goal.name') %></th>
             <th scope="col" class="px-4 py-3"><%= t('activerecord.attributes.goal.description') %></th>
             <th scope="col" class="px-4 py-3"><%= t('activerecord.attributes.goal.status') %></th>
@@ -74,9 +80,9 @@
       <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
                 <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
                     <%= t('views.manager.goals.index.pages.showing') %>
-                    <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
+                  <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
                   <%= t('views.manager.goals.index.pages.of') %>
-                    <span class="font-semibold text-gray-900 dark:text-white">1000</span>
+                  <span class="font-semibold text-gray-900 dark:text-white">1000</span>
                 </span>
         <ul class="inline-flex items-stretch -space-x-px">
           <li>

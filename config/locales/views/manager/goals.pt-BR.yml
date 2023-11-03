@@ -13,6 +13,7 @@ pt-BR:
           actions: 'Ações'
           action_1: 'Ação 1'
           action_2: 'Ação 2'
+          action_3: 'Finalizar'
           pages:
             showing: 'Mostrando'
             of: 'de'

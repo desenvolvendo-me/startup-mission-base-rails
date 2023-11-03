@@ -4,17 +4,6 @@ module Manager
                   only: %i[show edit update
                            destroy]
 
-    def done
-      @goal = Goal.find(params[:goal_id])
-      @goal.done!
-      respond_to do |format|
-        format.html do
-          redirect_to manager_goals_path,
-                      notice: t('controllers.manager.goals.done')
-        end
-      end
-    end
-
     def index
       @q = Goal.ransack(params[:q])
       @goals = @q.result(distinct: true)
