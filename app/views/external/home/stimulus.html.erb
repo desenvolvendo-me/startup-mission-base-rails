@@ -7,9 +7,13 @@
                 </svg>
                 <span class="sr-only"><%= t 'views.layouts.defaults.light_bulb' %></span>
             </span>
-      <span><%= t 'views.layouts.defaults.you_are' %>
-        <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= t 'views.layouts.defaults.external' %></span><%= t 'views.layouts.defaults.from_app' %></span>
+      <span>
+        Esse é uma exemplo do Stimulus configurado na aplicação, clique e veja o console:
 
+    <div data-controller="sample" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">
+      <button data-action="click->sample#greet">Clique aqui</button>
+    </div>
+        </span>
     </p>
   </div>
   <div class="flex items-center">
@@ -19,14 +23,5 @@
       </svg>
       <span class="sr-only"><%= t 'views.layouts.defaults.close' %></span>
     </button>
-  </div>
-</div>
-<div id="sticky-banner" tabindex="-1" class="flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-  <div class="flex items-center mx-auto">
-    <p>
-    <div data-controller="sample">
-      <button data-action="click->sample#greet">Sample Stimulus</button>
-    </div>
-    </p>
   </div>
 </div>
