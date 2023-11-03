@@ -31,8 +31,8 @@ RSpec.describe Manager::Goals::DoneController,
         post :many,
              params: { goal_ids: goals.pluck(:id) }, as: :json
       end.to change { goals.first.reload.status }.from('todo').to('done')
-      expect(JSON.parse(response.body)["message"]).to eq(I18n.t('controllers.manager.goals.dones'))
+      expect(JSON.parse(response.body)['message'])
+        .to(eq(I18n.t('controllers.manager.goals.dones')))
     end
   end
-
 end

@@ -34,7 +34,8 @@ RSpec.feature 'Manager Goals', type: :feature do
     click_button 'actionsDropdownButton'
     click_link I18n.t('views.manager.goals.done')
 
-    # TODO: Problema com javascript, parece que o capybara não executa o javascript
+    # TODO: Problema com javascript, parece que o capybara não
+    # executa o javascript
     # expect(page).to have_text('Feito')
   end
 

@@ -19,17 +19,19 @@ module Manager
         respond_to do |format|
           format.html do
             redirect_to manager_goal_path(@goal),
-                                          notice: t('controllers.manager.goals.done')
+                        notice: t('controllers.manager.goals.done')
           end
         end
       end
 
       def many
-        Goal.where(id: params[:done][:goal_ids]).update_all(status: :done)
+        Goal.where(id: params[:done][:goal_ids])
+            .update(status: :done)
 
         respond_to do |format|
           format.json do
-            render json: { message: t('controllers.manager.goals.dones') }, status: :ok
+            render json: { message: t('controllers.manager.goals.dones') },
+                   status: :ok
           end
         end
       end
