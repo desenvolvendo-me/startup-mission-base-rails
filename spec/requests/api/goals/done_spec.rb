@@ -2,8 +2,9 @@
 require 'swagger_helper'
 
 RSpec.describe Api::Goals::DoneController, type: :request do
+  base_path = '/api/goals/done'
 
-  path '/api/goals/done/index' do
+  path "#{base_path}/index" do
     post 'A goal as done' do
       tags 'Goals'
       consumes 'application/json'
@@ -25,7 +26,7 @@ RSpec.describe Api::Goals::DoneController, type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data['status']).to eq('done')
-          expect(response).to match_response_schema("goal")
+          expect(response).to match_response_schema('goal')
         end
       end
 
@@ -36,7 +37,7 @@ RSpec.describe Api::Goals::DoneController, type: :request do
     end
   end
 
-  path '/api/goals/done/show' do
+  path "#{base_path}/show" do
     post 'A goal as done' do
       tags 'Goals'
       consumes 'application/json'
@@ -58,7 +59,7 @@ RSpec.describe Api::Goals::DoneController, type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data['status']).to eq('done')
-          expect(response).to match_response_schema("goal")
+          expect(response).to match_response_schema('goal')
         end
       end
 
@@ -69,7 +70,7 @@ RSpec.describe Api::Goals::DoneController, type: :request do
     end
   end
 
-  path '/api/goals/done/many' do
+  path "#{base_path}/many" do
     post 'A goals as done' do
       tags 'Goals'
       consumes 'application/json'
@@ -91,7 +92,7 @@ RSpec.describe Api::Goals::DoneController, type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data[1]['status']).to eq('done')
-          expect(response).to match_response_schema("goals")
+          expect(response).to match_response_schema('goals')
         end
       end
 
@@ -101,5 +102,4 @@ RSpec.describe Api::Goals::DoneController, type: :request do
       end
     end
   end
-
 end

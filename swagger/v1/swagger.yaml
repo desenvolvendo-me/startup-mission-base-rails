@@ -1,7 +1,7 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.3
 info:
-  title: API V1
+  title: Missão Startup Base API V1
   version: v1
 paths:
   "/api/goals/done/index":
@@ -70,7 +70,7 @@ paths:
               required:
               - goal_ids
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000
