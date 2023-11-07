@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   devise_for :admin_users,
              ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  namespace :api do
+    namespace :goals do
+      namespace :done do
+        post :index
+        post :show
+        post :many
+      end
+    end
+  end
 
   namespace :manager do
     resources :goals
