@@ -13,8 +13,13 @@ module Api
       end
 
       def many
-        @goals = Goal.where(id: params[:done][:goal_ids])
-                     .update(status: :done)
+        @goals = Goal.where(id: params[:goal_ids])
+
+        if @goals.any?
+          @goals.update(status: :done)
+        else
+          render json: { error: "Couldn't find Goals" }, status: :not_found
+        end
       end
 
       private

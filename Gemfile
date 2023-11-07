@@ -27,6 +27,8 @@ gem 'turbo-rails'
 gem 'tzinfo-data',
     platforms: %i[mingw mswin x64_mingw jruby]
 gem 'yaml'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 group :development, :test do
   gem 'annotate'
@@ -48,6 +50,8 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov'
   gem 'simplecov-json'
+  gem 'rswag-specs'
+  gem 'json_matchers'
 end
 
 group :development do

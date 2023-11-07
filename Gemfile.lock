@@ -187,6 +187,11 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.6.3)
+    json-schema (3.0.0)
+      addressable (>= 2.8)
+    json_matchers (0.11.1)
+      json_schema
+    json_schema (0.21.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -344,6 +349,16 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.12.1)
+    rswag-api (2.11.0)
+      railties (>= 3.1, < 7.2)
+    rswag-specs (2.11.0)
+      activesupport (>= 3.1, < 7.2)
+      json-schema (>= 2.2, < 4.0)
+      railties (>= 3.1, < 7.2)
+      rspec-core (>= 2.14)
+    rswag-ui (2.11.0)
+      actionpack (>= 3.1, < 7.2)
+      railties (>= 3.1, < 7.2)
     rubocop (1.57.1)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -484,6 +499,7 @@ DEPENDENCIES
   groupdate
   importmap-rails
   jbuilder
+  json_matchers
   letter_opener_web
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.2)
@@ -496,6 +512,9 @@ DEPENDENCIES
   ransack (< 4.0)
   rspec-benchmark
   rspec-rails (~> 4.0)
+  rswag-api
+  rswag-specs
+  rswag-ui
   rubocop
   rubocop-capybara
   rubocop-factory_bot
