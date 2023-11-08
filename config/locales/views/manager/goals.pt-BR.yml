@@ -10,9 +10,10 @@ pt-BR:
         index:
           search: 'Pesquisar'
           add_goal: "Criar meta"
-          actions: 'Ações'
-          action_1: 'Ação 1'
-          action_2: 'Ação 2'
+          filter_by: 'Filtrar'
+          actions: "Ações"
+          action_1: 'Concluídas'
+          action_2: 'Não concluídas'
           action_3: 'Finalizar'
           pages:
             showing: 'Mostrando'

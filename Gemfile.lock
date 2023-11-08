@@ -500,6 +500,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   json_matchers
+  kaminari
   letter_opener_web
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.2)
