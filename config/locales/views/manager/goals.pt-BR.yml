@@ -5,6 +5,7 @@ pt-BR:
         show: 'Mostrar'
         edit: 'Editar'
         delete: 'Apagar'
+        done: 'Finalizar'
         delete_confirm: 'Você tem certeza?'
         index:
           search: 'Pesquisar'
@@ -12,6 +13,7 @@ pt-BR:
           filter_by: 'Filtrar'
           action_1: 'Concluídas'
           action_2: 'Não concluídas'
+          action_3: 'Finalizar'
           pages:
             showing: 'Mostrando'
             of: 'de'
