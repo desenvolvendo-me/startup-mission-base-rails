@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Goals::Finisher do
+  before do
+    Sidekiq::Testing.inline!
+  end
+
   describe 'goal' do
     context 'done' do
       it 'with task' do

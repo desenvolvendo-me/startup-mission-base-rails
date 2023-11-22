@@ -24,7 +24,7 @@ class Goal < ApplicationRecord
   after_update :after_update
 
   def after_update
-    Goals::Finisher.call(self)
+    GoalFinishedJob.perform_later(self)
   end
 
   def to_s
