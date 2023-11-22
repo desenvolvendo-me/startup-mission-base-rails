@@ -11,6 +11,7 @@ end
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'sidekiq/testing'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
