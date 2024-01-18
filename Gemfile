@@ -9,6 +9,7 @@ gem 'activeadmin', '~> 2.14'
 gem 'bootsnap', require: false
 gem 'chartkick', '~> 3.3.0'
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'foreman'
 gem 'groupdate'
 gem 'importmap-rails'
