@@ -4,7 +4,7 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 </head>
 <body>
-<h1><%= t('mailer.goals.finished.subject') %></h1>
-<p>Isso é só um <%= @variable %></p>
+<h1><%= t('.subject') %></h1>
+<p><%= t('.body', variable: @variable ) %></p>
 </body>
 </html>

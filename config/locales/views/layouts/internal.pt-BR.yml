@@ -1,11 +1,11 @@
 pt-BR:
-  views:
-    layouts:
-      internal:
-        sr-only:
-          open_menu: "Abrir menu principal"
-        settings: "Configurações"
-        sign_out: "Sair da conta"
-        dashboard: "Painel"
-        goal: "Meta"
-        new: "Novo"
+  layouts:
+    internal:
+      sr-only:
+        open_menu: "Abrir menu principal"
+      settings: "Configurações"
+      sign_out: "Sair da conta"
+    menu_goals:
+      menu_1: 'Metas'
+    menu_dash:
+      menu_1: 'Painel'
