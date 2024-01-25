@@ -1,38 +1,43 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <div>
+    <%= f.fields_for :client, resource.client ? nil : resource.build_client do |client_form| %>
+      <%= client_form.label :document %><br/>
+      <%= client_form.text_field :document %>
+    <% end %>
+  </div>
+
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br/>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :avatar %><br />
+    <%= f.label :avatar %><br/>
     <%= f.file_field :avatar %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><br/>
     <%= f.email_field :email %>
   </div>
 
-  <!-- Se o usuário pode alterar sua senha -->
-  <% if devise_mapping.recoverable? && controller_name != 'registrations' %>
-    <div class="field">
-      <%= f.label :password %> <i>(deixe em branco se não quiser mudar)</i><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+  <div class="field">
+    <%= f.label :password %> <i>(deixe em branco se não quiser mudar)</i><br/>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
 
-    <div class="field">
-      <%= f.label :current_password %> <i>(precisamos da sua senha atual para confirmar suas mudanças)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= f.label :current_password %> <i>(precisamos da sua senha atual para confirmar suas mudanças)</i><br/>
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Update" %>
