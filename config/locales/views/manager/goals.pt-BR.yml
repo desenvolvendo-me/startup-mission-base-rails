@@ -1,31 +1,43 @@
 pt-BR:
-  views:
-    manager:
-      goals:
+  manager:
+    goals:
+      index:
+        search: 'Pesquisar'
+        add: "Cadastrar meta"
+        filter_by: 'Filtrar'
+        filter_1: 'Concluídas'
+        filter_2: 'Não concluídas'
+        actions: 'Ações'
+        action_1: 'Finalizar'
+        pages:
+          showing: 'Mostrando'
+          of: 'de'
+        previous: 'anterior'
+        next: 'próximo'
+      new:
+        title: 'Cadastrando meta'
+        add: 'Criar meta'
+        back: 'Voltar'
+        save: 'Salvar'
+      edit:
+        title: 'Editando meta'
+        save: 'Salvar'
+        show: 'Mostrar'
+      show:
+        title: 'Detalhando meta'
+        edit: 'Editar'
+        back: 'Voltar'
+        save: 'Salvar'
+        done: 'Finalizar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+      goal:
         show: 'Mostrar'
         edit: 'Editar'
-        delete: 'Apagar'
         done: 'Finalizar'
+        delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
-        index:
-          search: 'Pesquisar'
-          add_goal: "Criar meta"
-          filter_by: 'Filtrar'
-          actions: "Ações"
-          action_1: 'Concluídas'
-          action_2: 'Não concluídas'
-          action_3: 'Finalizar'
-          pages:
-            showing: 'Mostrando'
-            of: 'de'
-          previous: 'anterior'
-          next: 'próximo'
-        save: 'Salvar'
-        edit_view:
-          title: 'Editando Meta'
-        show_view:
-          title: 'Detalhando Meta'
-        _form:
-          error: 'impediu esse meta de ser salva'
-        add_task: 'Adicionar Tarefa'
+      task_fields:
         remove_task: 'Remover Tarefa'
+      form:
+        add_task: 'Adicionar tarefa'

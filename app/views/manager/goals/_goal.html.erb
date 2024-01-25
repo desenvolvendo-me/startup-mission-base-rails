@@ -15,18 +15,18 @@
       <% if action_name != "show" %>
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="apple-imac-27-dropdown-button">
           <li>
-            <%= link_to t('views.manager.goals.show'), manager_goal_path(goal), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t('.show'), manager_goal_path(goal), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
           <li>
-            <%= link_to t('views.manager.goals.edit'), edit_manager_goal_path(goal), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t('.edit'), edit_manager_goal_path(goal), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
         </ul>
         <div class="py-1">
-          <%= link_to t('views.manager.goals.delete'), manager_goal_path(goal),
-                      data: { turbo_method: :delete, turbo_confirm: t('views.manager.goals.delete_confirm') }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
+          <%= link_to t('.delete'), manager_goal_path(goal),
+                      data: { turbo_method: :delete, turbo_confirm: t('.delete_confirm') }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
         </div>
         <div class="py-1">
-          <%= link_to t('views.manager.goals.done'), manager_goals_done_index_path(goal_id: goal), data: { turbo_method: :post },
+          <%= link_to t('.done'), manager_goals_done_index_path(goal_id: goal), data: { turbo_method: :post },
                       class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
         </div>
       <% end %>

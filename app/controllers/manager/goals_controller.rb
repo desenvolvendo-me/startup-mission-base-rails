@@ -25,7 +25,7 @@ module Manager
         if @goal.save
           format.html do
             redirect_to manager_goal_path(@goal),
-                        notice: t('controllers.manager.goals.create')
+                        notice: t('.create')
           end
         else
           format.html do
@@ -41,7 +41,7 @@ module Manager
         if @goal.update(goal_params)
           format.html do
             redirect_to manager_goal_path(@goal),
-                        notice: t('controllers.manager.goals.update')
+                        notice: t('.update')
           end
         else
           format.html do
@@ -57,7 +57,7 @@ module Manager
       respond_to do |format|
         format.html do
           redirect_to manager_goals_path,
-                      notice: t('controllers.manager.goals.destroy')
+                      notice: t('.destroy')
         end
       end
     end

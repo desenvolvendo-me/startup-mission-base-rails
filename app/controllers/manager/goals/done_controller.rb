@@ -9,7 +9,7 @@ module Manager
         respond_to do |format|
           format.html do
             redirect_to manager_goals_path,
-                        notice: t('controllers.manager.goals.done')
+                        notice: t('.other')
           end
         end
       end
@@ -19,7 +19,7 @@ module Manager
         respond_to do |format|
           format.html do
             redirect_to manager_goal_path(@goal),
-                        notice: t('controllers.manager.goals.done')
+                        notice: t('.one')
           end
         end
       end
@@ -30,7 +30,7 @@ module Manager
 
         respond_to do |format|
           format.json do
-            render json: { message: t('controllers.manager.goals.dones') },
+            render json: { message: t('.other') },
                    status: :ok
           end
         end
