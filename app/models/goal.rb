@@ -9,8 +9,10 @@
 #  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  client_id   :integer
 #
 class Goal < ApplicationRecord
+  acts_as_tenant :client
   has_many :tasks, dependent: :destroy, inverse_of: :goal
 
   enum status: { backlog: 'backlog', todo: 'todo', block: 'block',
