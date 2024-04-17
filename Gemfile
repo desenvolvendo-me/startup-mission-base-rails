@@ -11,7 +11,6 @@ gem 'chartkick', '~> 3.3.0'
 gem 'devise'
 gem 'foreman'
 gem 'groupdate'
-gem 'importmap-rails'
 gem 'jbuilder'
 gem 'kaminari'
 gem 'pg', '~> 1.2'
@@ -22,6 +21,7 @@ gem 'ransack', '< 4.0'
 gem 'rswag-api'
 gem 'rswag-ui'
 gem 'sassc'
+gem 'sidekiq', '~> 7.2'
 gem 'simple_form'
 gem 'simple_form-tailwind'
 gem 'sprockets-rails'
@@ -77,3 +77,6 @@ group :test do
 end
 
 gem 'sidekiq', '~> 7.2'
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"

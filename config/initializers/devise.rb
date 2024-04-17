@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '165e08dd1e08886c9a47936374b264056266e091f34c66f5915d60881da108d32a944415dcdd0e21e97a1b3618d137404752a8232df7b64188315ece07ae9e7e'
+  # config.secret_key = 'a1e56103438e71a8f9ed857f2ac47b325433eaaaec8f3a7316f30974d42cc3b2ad41df8b81158d5d078603cd235937ef2e5dd3e995accfb2ba1e04939afd2883'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = Railsui.config.support_email
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '5a74234349f27ef4ae4f8f5f6503c92282b2435cb701f448766b351ee8a2d2b857e87e27c8e780cce0fab5c90aa9367937655451565571e093d698bef3e7abcd'
+  # config.pepper = '3f1bbc27cfb611aac042fe71017f1fd619759f3d64388a2110991651dc7671ef74cb4070b63bbf835fe943f17e6c72370970303160c4a420c7c3321236c2d3f4'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -299,7 +299,7 @@ Devise.setup do |config|
   # ==> Hotwire/Turbo configuration
   # When using Devise with Hotwire/Turbo, the http status for error responses
   # and some redirects must match the following. The default in Devise for existing
-  # apps is `200 OK` and `302 Found respectively`, but new apps are generated with
+  # apps is `200 OK` and `302 Found` respectively, but new apps are generated with
   # these new defaults that match Hotwire/Turbo behavior.
   # Note: These might become the new default in future versions of Devise.
   config.responder.error_status = :unprocessable_entity
@@ -310,4 +310,13 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+end
+
+Rails.application.config.to_prepare do
+  Devise::SessionsController.layout "devise"
+  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
+  Devise::ConfirmationsController.layout "devise"
+  Devise::PasswordsController.layout "devise"
+  Devise::UnlocksController.layout "devise"
+  Devise::Mailer.helper Railsui::MailHelper
 end

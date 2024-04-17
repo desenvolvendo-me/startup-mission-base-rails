@@ -8,6 +8,18 @@ Bundler.require(*Rails.groups)
 
 module StartupMissionBaseRails
   class Application < Rails::Application
+    config.generators do |g|
+      g.template_engine :railsui
+      g.fallbacks[:railsui] = :erb
+    end
+
+    config.to_prepare do
+      Devise::Mailer.layout "mailer"
+    end
+
+    # Config default time to Brasília for lesson launch_time
+    config.time_zone = 'Brasilia'
+
     config.active_job.queue_adapter = :sidekiq
 
     # Initialize configuration defaults for originally generated Rails version.
@@ -15,6 +27,7 @@ module StartupMissionBaseRails
 
     # Specify location below
     config.i18n.default_locale = 'pt-BR'
+    config.i18n.locale = 'pt-BR'
 
     # Configuration for the application, engines, and railties goes here.
     #

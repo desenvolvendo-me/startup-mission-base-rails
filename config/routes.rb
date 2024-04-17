@@ -1,5 +1,14 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  if Rails.env.development? || Rails.env.test?
+    mount Railsui::Engine, at: "/railsui"
+  end
+
+  # Inherits from Railsui::PageController#index
+  # To overide, add your own page#index view or change to a new root
+  # Visit the start page for Rails UI any time at /railsui/start
+  root action: :index, controller: "railsui/page"
+
   devise_for :users
   mount Sidekiq::Web => '/sidekiq'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
