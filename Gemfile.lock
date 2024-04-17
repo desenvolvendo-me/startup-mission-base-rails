@@ -190,6 +190,10 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
+    importmap-rails (2.0.1)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     inherited_resources (1.14.0)
       actionpack (>= 6.0)
       has_scope (>= 0.6)
@@ -534,6 +538,7 @@ DEPENDENCIES
   ffaker
   foreman
   groupdate
+  importmap-rails
   jbuilder
   json (= 2.7.1)
   json_matchers
