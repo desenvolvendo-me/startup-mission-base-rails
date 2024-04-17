@@ -11,11 +11,11 @@
 
     <%= render "shared/fonts" %>
     <%= render "shared/meta" %>
-    <%= custom_color_css %>
+    <%= custom_colors_css %>
     <%= yield :head %>
   </head>
 
-  <body class="font-normal leading-normal text-slate-800 relative selection:bg-primary-500/40 bg-white dark:bg-slate-900 dark:text-slate-100 antialiased" data-controller="dark-mode search">
+  <body class="font-normal leading-normal text-slate-800 relative selection:bg-primary-500/40 bg-white dark:bg-slate-900 dark:text-slate-100 antialiased">
     <%= render "shared/flash" %>
     <% if content_for(:header).present? %>
       <%= yield :header %>
@@ -24,6 +24,5 @@
     <% end %>
     <%= yield %>
     <%= railsui_launcher if Rails.env.development? %>
-    <%= render "shared/search_overlay" %>
   </body>
 </html>
