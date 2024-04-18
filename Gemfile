@@ -21,6 +21,7 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 gem 'railsui', github: 'getrailsui/railsui'
 gem 'ransack', '< 4.0'
+gem 'redis', '~> 4.0'
 gem 'rswag-api'
 gem 'rswag-ui'
 gem 'sassc'
@@ -76,8 +77,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'sidekiq', '~> 7.2'
-
-# Use Redis for Action Cable
-gem 'redis', '~> 4.0'
