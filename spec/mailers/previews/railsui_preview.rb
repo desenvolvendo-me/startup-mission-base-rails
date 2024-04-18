@@ -1,6 +1,5 @@
 # Preview all emails at http://localhost:3000/rails/mailers/railsui
 class RailsuiPreview < ActionMailer::Preview
-
   # Preview this email at http://localhost:3000/rails/mailers/railsui/minimal
   def minimal
     RailsuiMailer.minimal
@@ -15,5 +14,4 @@ class RailsuiPreview < ActionMailer::Preview
   def transactional
     RailsuiMailer.transactional
   end
-
 end

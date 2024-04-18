@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar, :name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar, :name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[avatar name])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[avatar name])
   end
 
   set_current_tenant_through_filter
@@ -24,11 +24,14 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar, client_attributes: [:document]])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: [:name, :avatar,
+                                             { client_attributes: [:document] }])
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, client_attributes: [:document]])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: [:name, :avatar,
+                                             { client_attributes: [:document] }])
   end
 end
-

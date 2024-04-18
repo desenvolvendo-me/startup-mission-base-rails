@@ -86,14 +86,16 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 
-class ActiveSupport::TestCase
-  parallelize(workers: :number_of_processors)
+module ActiveSupport
+  class TestCase
+    parallelize(workers: :number_of_processors)
 
-  parallelize_setup do |worker|
-    SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
-  end
+    parallelize_setup do |worker|
+      SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
+    end
 
-  parallelize_teardown do
-    SimpleCov.result
+    parallelize_teardown do
+      SimpleCov.result
+    end
   end
 end
