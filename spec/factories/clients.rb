@@ -14,6 +14,6 @@
 #
 FactoryBot.define do
   factory :client do
-    document { "MyString" }
+    document { 'MyString' }
   end
 end
