@@ -35,9 +35,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :confirmable, :trackable
 
   has_one :client, dependent: :destroy
   has_one_attached :avatar
   accepts_nested_attributes_for :client
+
+  def send_email_changed_notification?
+    true
+  end
 end
