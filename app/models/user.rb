@@ -47,10 +47,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :client
 
   def send_email_changed_notification?
-    true
+    previous_changes.include?('email') && persisted?
   end
 
   def send_password_change_notification?
-    true
+    previous_changes.include?('encrypted_password') && persisted?
   end
 end
