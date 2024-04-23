@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+<%= turbo_include_tags %>
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="https://flowbite.com/" class="flex items-center">
@@ -47,7 +47,7 @@
           </li>
           <li>
             <% if user_signed_in? %>
-              <%= button_to t('.sign_out'), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white', data: { turbo: false  } %>
+              <%= link_to t('.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
             <% end %>
           </li>
         </ul>
