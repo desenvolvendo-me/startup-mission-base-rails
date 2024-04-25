@@ -59,7 +59,11 @@ class PageController < ApplicationController
     render layout: 'admin'
   end
 
-  def pricing; end
+  def homepage; end
 
   def about; end
+
+  def pricing; end
+
+  def faq; end
 end
