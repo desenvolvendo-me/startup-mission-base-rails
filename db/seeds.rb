@@ -2,9 +2,9 @@ if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: '000000', password_confirmation: '000000')
   user_1 = User.create!(name: 'User 1', email: 'user1@mail.com',
-                        password: '000000', password_confirmation: '000000')
+                        password: '000000', password_confirmation: '000000',confirmed_at: Time.now )
   user_2 = User.create!(name: 'User 2', email: 'user2@mail.com',
-                        password: '000000', password_confirmation: '000000')
+                        password: '000000', password_confirmation: '000000',confirmed_at: Time.now )
 
   client_1 = Client.create(document: '81939120047', user: user_1)
   client_2 = Client.create(document: '66778473061', user: user_2)
