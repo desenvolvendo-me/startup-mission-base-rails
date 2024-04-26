@@ -19,6 +19,12 @@ Rails.application.routes.draw do
   get 'about', to: 'page#about'
 	get 'pricing', to: 'page#pricing'
   get 'faq', to: 'page#faq'
+  get 'billing', to: 'page#billing'
+  get 'integrations', to: 'page#integrations'
+  get 'team', to: 'page#team'
+  get 'settings', to: 'page#settings'
+  get 'activity', to: 'page#activity'
+  get 'notifications', to: 'page#notifications'
   if Rails.env.development? || Rails.env.test?
     mount Railsui::Engine, at: "/railsui"
   end
