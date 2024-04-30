@@ -1,24 +1,4 @@
 class PageController < ApplicationController
-  def integrations
-    render layout: 'admin'
-  end
-
-  def team
-    render layout: 'admin'
-  end
-
-  def billing
-    render layout: 'admin'
-  end
-
-  def notifications
-    render layout: 'admin'
-  end
-
-  def settings
-    render layout: 'admin'
-  end
-
   def activity
     render layout: 'admin'
   end
@@ -66,4 +46,17 @@ class PageController < ApplicationController
   def pricing; end
 
   def faq; end
+
+  def billing; end
+
+  def integrations; end
+
+  def team; end
+
+  def billing; end
+
+  def notifications; end
+
+  def settings; end
+
 end
