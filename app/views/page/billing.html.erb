@@ -1,5 +1,11 @@
 <% content_for :body_classes, "text-slate-800 dark:bg-slate-900 dark:text-slate-100 bg-white" %>
 
+<div class="bg-white border-b dark:bg-slate-800/50 dark:border-b dark:border-slate-700 px-4">
+  <div class="container mx-auto sm:flex flex-wrap justify-between items-center">
+    <%= render "shared/settings/nav", { header_title: "Billing" } %>
+  </div>
+</div>
+
 <div class="container mx-auto pb-24 px-4 my-16">
   <div class="max-w-4xl mx-auto">
     <h1 class="mb-2 text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Billing</h1>
