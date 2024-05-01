@@ -5,6 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.5'
 
+#payment
+gem 'stripe'
+
 gem 'activeadmin', '~> 2.14'
 gem 'acts_as_tenant'
 gem 'bootsnap', require: false

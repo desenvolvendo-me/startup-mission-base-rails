@@ -35,7 +35,7 @@
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= link_to "Try Startup for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Startup for free", checkout_path, params: { plan: 'startup' }, method: :post, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Professional</p>
@@ -44,7 +44,7 @@
       <p class="text-slate-700 leading-tight my-4 dark:text-slate-300">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= link_to "Try Professional for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Premium</p>
@@ -54,7 +54,7 @@
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <a href="#" class="btn btn-primary w-full">Try Premium for free</a>
+      <%= button_to "Try Premium for free", checkout_path, params: { plan: 'premium' }, method: :post, class: "btn btn-primary w-full" %>
     </div>
   </div>
 
@@ -325,13 +325,23 @@
   <ul class="list-none hidden lg:grid grid-cols-1 lg:grid-cols-4 lg:gap-10 gap-4 items-center pt-6 mb-6">
     <li></li>
     <li>
-      <%= link_to "Try Startup for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Startup for free", checkout_path, params: { plan: 'startup' }, method: :post, class: "btn btn-primary w-full" %>
+
     </li>
     <li>
-      <%= link_to "Try Professional for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, class: "btn btn-primary w-full" %>
     </li>
     <li>
-      <%= link_to "Try Premium for free", "#", class: "btn btn-primary w-full" %>
+      <script async
+              src="https://js.stripe.com/v3/buy-button.js">
+      </script>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1PB6NvRpXIS2OKDB0I02sqzd"
+        publishable-key="pk_test_51P9d1QRpXIS2OKDBIcv4324FMUKAEoAYoIkJBVZE2k7SZ5anTqPP2EFy0GdYCEnRjNf7f0D7vVZej0MEfG04OozR007uq7cAzx"
+      >
+      </stripe-buy-button>
+
     </li>
   </ul>
 </div>
