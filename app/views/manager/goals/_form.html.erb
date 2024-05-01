@@ -1,32 +1,25 @@
-<div class="flex flex-col">
-  <div class="flex">
-    <%= form.input :name, placeholder: ' ' %>
-    <%= form.input :status, placeholder: ' ', as: :select, collection: Goal.statuses.keys.map { |key|
-      [I18n.t("enum.statuses.#{key}"), key]
-    } %>
-  </div>
-  <div class="w-full">
-    <%= form.input :description, placeholder: ' ', as: :text, input_html: { rows: '3' } %>
-  </div>
-</div>
+<%= form_with(model: goal) do |form| %>
+  <%= render "shared/error_messages", resource: form.object %>
 
-<div class="flex justify-between items-center mb-4">
-  <h1 class="font-bold text-4xl">Tarefas</h1>
-  <div>
-    <button data-action="nested-form#add" class="mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 cursor-pointer">
-     <%= t('.add_task') %>
-    </button>
+  <div class="form-group">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-input" %>
   </div>
-</div>
 
-<template data-nested-form-target="template">
-  <%= form.simple_fields_for :tasks, Task.new, child_index: 'NEW_RECORD' do |tasks_form| %>
-    <%= render "task_fields", form: tasks_form %>
-  <% end %>
-</template>
+  <div class="form-group">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-input" %>
+  </div>
 
-<%= form.simple_fields_for :tasks do |tasks_form| %>
-  <%= render "task_fields", form: tasks_form %>
+  <div class="flex items-center justify-between flex-wrap">
+    <div class="sm:flex-1 sm:mb-0 mb-6">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
+
+    <% if form.object.new_record? %>
+      <%= link_to "Cancel", manager_goal_path, class: "btn btn-light" %>
+    <% else %>
+      <%= link_to "Cancel", manager_goal_path(@goal), class: "btn btn-light" %>
+    <% end %>
+  </div>
 <% end %>
-
-<div data-nested-form-target="target"></div>
