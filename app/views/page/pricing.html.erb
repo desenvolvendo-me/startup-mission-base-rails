@@ -35,7 +35,7 @@
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= link_to "Try Startup for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Mensal", checkout_path, params: { plan: 'startup', payment_type: 'subscription' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Professional</p>
@@ -44,7 +44,7 @@
       <p class="text-slate-700 leading-tight my-4 dark:text-slate-300">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= link_to "Try Professional for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Anual", checkout_path, params: { plan: 'professional', payment_type: 'subscription' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Premium</p>
@@ -54,7 +54,7 @@
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <a href="#" class="btn btn-primary w-full">Try Premium for free</a>
+      <%= button_to "Vitalício", checkout_path, params: { plan: 'premium', payment_type: 'payment' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
   </div>
 
