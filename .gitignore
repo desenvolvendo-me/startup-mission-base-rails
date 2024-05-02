@@ -43,3 +43,4 @@ dump.rdb
 .byebug_history
 
 /node_modules
+*.yml.enc
