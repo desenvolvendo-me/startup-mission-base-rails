@@ -35,7 +35,7 @@
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= button_to "Try Startup for free", checkout_path, params: { plan: 'startup' }, method: :post, class: "btn btn-primary w-full" %>
+      <%= button_to "Try Startup for free", checkout_path, params: { plan: 'startup' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Professional</p>
@@ -44,7 +44,7 @@
       <p class="text-slate-700 leading-tight my-4 dark:text-slate-300">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Premium</p>
@@ -54,7 +54,7 @@
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= button_to "Try Premium for free", checkout_path, params: { plan: 'premium' }, method: :post, class: "btn btn-primary w-full" %>
+      <%= button_to "Try Premium for free", checkout_path, params: { plan: 'premium' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
   </div>
 
@@ -325,11 +325,11 @@
   <ul class="list-none hidden lg:grid grid-cols-1 lg:grid-cols-4 lg:gap-10 gap-4 items-center pt-6 mb-6">
     <li></li>
     <li>
-      <%= button_to "Try Startup for free", checkout_path, params: { plan: 'startup' }, method: :post, class: "btn btn-primary w-full" %>
+      <%= button_to "Try Startup for free", checkout_path, params: { plan: 'startup' }, method: :post, data: { turbo: false },class: "btn btn-primary w-full" %>
 
     </li>
     <li>
-      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </li>
     <li>
       <script async
