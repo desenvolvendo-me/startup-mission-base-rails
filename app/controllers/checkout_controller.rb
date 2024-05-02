@@ -12,8 +12,8 @@ class CheckoutController < ApplicationController
         quantity: 1
       }],
       mode: mode,
-      success_url: checkout_success_url,  # Ajuste conforme necessário
-      cancel_url: checkout_cancel_url    # Ajuste conforme necessário
+      success_url: checkout_success_url,
+      cancel_url: checkout_cancel_url
     )
 
     redirect_to session.url, allow_other_host: true

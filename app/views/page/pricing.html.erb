@@ -325,13 +325,13 @@
   <ul class="list-none hidden lg:grid grid-cols-1 lg:grid-cols-4 lg:gap-10 gap-4 items-center pt-6 mb-6">
     <li></li>
     <li>
-      <%= link_to "Try Startup for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'startup' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
     </li>
     <li>
-      <%= link_to "Try Professional for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
     </li>
     <li>
-      <%= link_to "Try Premium for free", "#", class: "btn btn-primary w-full" %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'premium' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
     </li>
   </ul>
 </div>

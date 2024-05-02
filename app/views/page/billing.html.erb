@@ -31,7 +31,40 @@
                 Monthly</p>
             </div>
           </div>
-          <%= button_to "Manager plan", checkout_path, params: { plan: 'startup', payment_type: 'subscription' }, method: :post, data: { turbo: false }, class: "btn btn-white" %>
+
+          <div data-controller="modal">
+            <button type="button" data-action="click->modal#open" class="btn btn-white" tabindex="0">
+              Manager plan
+            </button>
+
+            <div
+              aria-labelledby="modal-title"
+              aria-modal="true"
+              data-action="keyup@window->modal#closeWithEsc"
+              data-modal-target="container"
+              class="hidden fixed inset-0 z-50 overflow-y-auto"
+              role="dialog"
+            >
+              <div class="h-screen w-full relative flex items-center justify-center">
+                <div
+                  data-modal-target="content"
+                  data-transition-enter-active="transition ease-out duration-300"
+                  data-transition-enter-from="transform opacity-0 scale-95"
+                  data-transition-enter-to="transform opacity-100 scale-100"
+                  data-transition-leave-active="transition ease-in duration-300"
+                  data-transition-leave-from="transform opacity-100 scale-100"
+                  data-transition-leave-to="transform opacity-0 scale-95"
+                  class="hidden rounded shadow-xl max-w-lg bg-white m-1 p-8 prose origin-bottom mx-auto dark:bg-slate-700 dark:text-slate-200">
+                  <h2 id="modal-title" class="dark:text-slate-100">Manager plan</h2>
+                  <p><%= render 'shared/modal_plans'%>
+                  <div class="flex justify-end items-center flex-wrap space-x-4">
+                    <button class="btn btn-primary" data-action="click->modal#close">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div>
           <h4 class="font-semibold text-base">Billing period</h4>
