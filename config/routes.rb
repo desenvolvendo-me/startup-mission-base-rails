@@ -70,4 +70,9 @@ Rails.application.routes.draw do
     get '', to: 'home#index', as: :home
     get 'stimulus', to: 'home#stimulus', as: :stimulus
   end
+
+  #checout stripe
+  post 'checkout', to: 'checkout#create', as: 'checkout'
+  get 'checkout/success', to: 'checkout#success', as: 'checkout_success'
+  get 'checkout/cancel', to: 'checkout#cancel', as: 'checkout_cancel'
 end
