@@ -31,35 +31,17 @@
                 Monthly</p>
             </div>
           </div>
-          <%= link_to "Manage plan", "#", class: "btn btn-white" %>
+          <%= button_to "Manager plan", checkout_path, params: { plan: 'startup', payment_type: 'subscription' }, method: :post, data: { turbo: false }, class: "btn btn-white" %>
         </div>
         <div>
           <h4 class="font-semibold text-base">Billing period</h4>
           <p class="mb-3 text-slate-600 dark:text-slate-300">Monthly (renews August 30, 2023)</p>
-          <%= link_to "Change period", "#", class: "btn btn-white" %>
-        </div>
-      </div>
-
-      <div class="my-10">
-        <h4 class="font-semibold text-lg">Seats</h4>
-        <h5 class="font-semibold text-base my-3 dark:text-slate-300">Remaining seats</h5>
-        <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5 my-3">
-          <div class="bg-prmary-600 h-2.5 rounded-full" style="width: 50%"></div>
-        </div>
-
-        <p class="my-3"><span
-            class="rounded bg-neutral-100 text-neutral-800 dark:bg-slate-700 dark:text-slate-300 px-2 py-1 text-sm font-semibold">5</span>
-          of 10 seats
-          used</p>
-        <div class="flex items-center justify-end space-x-4">
-          <%= link_to "Manage seats", "#", class: "btn btn-white" %>
-          <%= link_to "Manage team", "#", class: "btn btn-white" %>
+          <%= link_to "Change period", pricing_path, class: "btn btn-white" %>
         </div>
       </div>
     </div>
 
-
-    <h4 class="font-semibold text-xl tracking-tight text-slate-800 mb-6 dark:text-slate-100">Billing details</h4>
+    <h4 class="mt-10 font-semibold text-xl tracking-tight text-slate-800 mb-6 dark:text-slate-100">Billing details</h4>
     <p class="py-2 mb-6 text-slate-600 dark:text-slate-300">Most recent saved payment method on file.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -93,34 +75,15 @@
         </div>
         <table class="mt-3 text-left w-full">
           <tbody>
+          <% @recent_invoices.each do |invoice| %>
             <tr>
               <td class="pr-2 py-2">
-                <%= link_to "Invoice #1103", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
+                <%= link_to "Invoice ##{invoice.number}", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
               </td>
-              <td class="pr-2 py-2">June 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
+              <td class="pr-2 py-2"><%= Time.at(invoice.created).to_date.strftime("%B %d, %Y") %></td>
+              <td class="pr-2 py-2 text-right">$<%= invoice.amount_due / 100.0 %></td>
             </tr>
-            <tr>
-              <td class="pr-2 py-2">
-                <%= link_to "Invoice #1102", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
-              </td>
-              <td class="pr-2 py-2">May 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
-            </tr>
-            <tr>
-              <td class="pr-2 py-2">
-                <%= link_to "Invoice #1101", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
-              </td>
-              <td class="pr-2 py-2">April 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
-            </tr>
-            <tr>
-              <td class="pr-2 py-2">
-                <%= link_to "Invoice #1100", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
-              </td>
-              <td class="pr-2 py-2">March 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
-            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>

@@ -53,10 +53,17 @@ class PageController < ApplicationController
 
   def team; end
 
-  def billing; end
+  def billing
+    @recent_invoices = retrieve_recent_invoices_from_stripe
+  end
 
   def notifications; end
 
   def settings; end
 
+  private
+
+  def retrieve_recent_invoices_from_stripe
+    Stripe::Invoice.list(limit: 4)
+  end
 end
