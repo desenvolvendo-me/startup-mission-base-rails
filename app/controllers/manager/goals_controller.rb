@@ -1,6 +1,5 @@
 module Manager
-  class GoalsController < InheritedResources::Base
-
+  class GoalsController < InternalController
     private
 
     def goal_params
