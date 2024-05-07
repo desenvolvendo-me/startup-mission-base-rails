@@ -44,3 +44,4 @@ dump.rdb
 
 /node_modules
 *.yml.enc
+*_old*

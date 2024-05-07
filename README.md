@@ -19,18 +19,58 @@ Score, 90
 ```
 ## ANÁLISE
 ### Teste e Cobertura
-    bundle exec rspec
+```
+bundle exec rspec
+```
 ### Lint
-    bundle exec rubocop
+```
+bundle exec rubocop
+```
 ### Score
-    bundle exec rubycritic
+```
+bundle exec rubycritic
+```
 
 # CONFIGURAÇÃO
+## RAILSUI
+### GEMFILE
+```
+bundle install
+```
+### NODEJS
+```
+npm install
+```
+### INSTALL RAILSUI
+```
+rails railsui:install
+```
+### MIGRATE DB
+```
+rails db:drop && rails db:create && rails db:migrate && rails db:seed RAILS_ENV=development
+```
+### REDIS
+```
+redis-server
+```
+### EXECUTANDO SERVIDOR
+```
+bin/dev
+```
 ## DOCKER
 ### CRIANDO
+```
 docker-compose up --build
+```
 ### EXECUTANDO
+```
 docker compose up
+```
+```
 docker-compose run web rails db:create
+```
+```
 docker-compose run web rails db:migrate
-docker-compose run web rspec
+```
+```
+docker-compose run web rspec```
