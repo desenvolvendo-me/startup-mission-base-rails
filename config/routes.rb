@@ -50,13 +50,13 @@ Rails.application.routes.draw do
 
   namespace :manager do
     resources :goals
-    # namespace :goals do
-    #   namespace :done do
-    #     post :index
-    #     post :show
-    #     post :many
-    #   end
-    # end
+    namespace :goals do
+      namespace :done do
+        get :index
+        get :show
+        post :many
+      end
+    end
 
     get '', to: 'home#index', as: :home
   end
