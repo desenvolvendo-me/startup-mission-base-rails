@@ -32,5 +32,10 @@ RSpec.describe CheckoutController, type: :controller do
       get :success
       expect(flash[:notice]).to eq('Pagamento concluído com sucesso!')
     end
+
+    it 'renders the success template' do
+      get :success
+      expect(response).to render_template('checkout/success')
+    end
   end
 end
