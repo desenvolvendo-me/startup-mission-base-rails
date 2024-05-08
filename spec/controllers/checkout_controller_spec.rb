@@ -38,4 +38,11 @@ RSpec.describe CheckoutController, type: :controller do
       expect(response).to render_template('checkout/success')
     end
   end
+
+  describe '#cancel' do
+    it 'sets an alert flash message' do
+      get :cancel
+      expect(flash[:alert]).to eq('O pagamento foi cancelado!')
+    end
+  end
 end
