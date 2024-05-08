@@ -26,4 +26,11 @@ RSpec.describe CheckoutController, type: :controller do
       end
     end
   end
+
+  describe '#success' do
+    it 'sets a success flash message' do
+      get :success
+      expect(flash[:notice]).to eq('Pagamento concluído com sucesso!')
+    end
+  end
 end
