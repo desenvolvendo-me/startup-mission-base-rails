@@ -7,12 +7,13 @@ RSpec.describe Devise::ConfirmationsController, type: :controller do
 
     before do
       allow(controller).to receive(:resource_class).and_return(User)
-      @request.env["devise.mapping"] = Devise.mappings[:user]
+      @request.env['devise.mapping'] = Devise.mappings[:user]
     end
 
     context 'when confirmation is successful' do
       it 'redirects to the new user session path with a confirmation notice' do
-        allow(User).to receive(:confirm_by_token).with(confirmation_token).and_return(user)
+        allow(User).to receive(:confirm_by_token)
+          .with(confirmation_token).and_return(user)
         allow(user.errors).to receive(:empty?).and_return(true)
 
         get :show, params: { confirmation_token: confirmation_token }
@@ -23,7 +24,8 @@ RSpec.describe Devise::ConfirmationsController, type: :controller do
 
     context 'when confirmation fails' do
       it 'redirects to the new user session path with an unconfirmed notice' do
-        allow(User).to receive(:confirm_by_token).with(confirmation_token).and_return(user)
+        allow(User).to receive(:confirm_by_token)
+          .with(confirmation_token).and_return(user)
         allow(user.errors).to receive(:empty?).and_return(false)
 
         get :show, params: { confirmation_token: confirmation_token }

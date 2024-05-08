@@ -122,7 +122,8 @@ RSpec.describe PageController, type: :controller do
 
       it 'assigns the recent invoices from Stripe' do
         invoices = double('invoices')
-        allow(controller).to receive(:retrieve_recent_invoices_from_stripe).and_return(invoices)
+        allow(controller).to receive(:retrieve_recent_invoices_from_stripe)
+          .and_return(invoices)
 
         get :billing
         expect(assigns(:recent_invoices)).to eq(invoices)

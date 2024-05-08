@@ -20,9 +20,9 @@ RSpec.describe CheckoutController, type: :controller do
 
     context 'when an unknown plan type is provided' do
       it 'raises an exception' do
-        expect {
+        expect do
           post :create, params: { plan: 'unknown', payment_type: 'card' }
-        }.to raise_error(RuntimeError, 'Plano desconhecido: unknown')
+        end.to raise_error(RuntimeError, 'Plano desconhecido: unknown')
       end
     end
   end
