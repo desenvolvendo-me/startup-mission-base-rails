@@ -1,19 +1,20 @@
 # app/controllers/checkouts_controller.rb
 class CheckoutController < ApplicationController
   def create
+    user = current_user
+    customer = user.client.update_stripe_customer
+
     plan_id = get_plan_price_id(params[:plan])
-    mode = params[:payment_type]
-    puts "plan_id #{plan_id}"
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        price: plan_id,
-        quantity: 1
-      }],
-      mode: mode,
+                     price: plan_id,
+                     quantity: 1,
+                   }],
+      mode: 'subscription',
       success_url: checkout_success_url,
-      cancel_url: checkout_cancel_url
+      cancel_url: checkout_cancel_url,
     )
 
     redirect_to session.url, allow_other_host: true
@@ -33,12 +34,14 @@ class CheckoutController < ApplicationController
 
   def get_plan_price_id(plan_type)
     case plan_type
-    when 'startup'
-      'price_1P9dyVRpXIS2OKDB32fpKBJy'  # Substitua pelo seu Price ID real do Stripe
-    when 'professional'
-      'price_1P9dqJRpXIS2OKDBsXqKCdr1'
-    when 'premium'
-      'price_1P9dnjRpXIS2OKDBoqfghETT'
+    when 'professional_montlhy'
+      'price_1PCWsiRpXIS2OKDBowrOw4CT'
+    when 'premium_montlhy'
+      'price_1PCWuFRpXIS2OKDBlzlZvmWh'
+    when 'professional_yearly'
+      'price_1PCWwORpXIS2OKDB2Z7wcmWe'
+    when 'premium_yearly'
+      'price_1PCXVjRpXIS2OKDBRNodCpRx'
     else
       raise "Plano desconhecido: #{plan_type}"
     end
