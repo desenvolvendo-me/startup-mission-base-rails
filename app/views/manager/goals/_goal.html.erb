@@ -1,13 +1,13 @@
 <li
   class="px-4 py-5 sm:text-base text-sm items-start grid grid-cols-2 sm:grid-cols-12 gap-3 sm:gap-0 before:content-[''] before:absolute relative before:left-2 before:h-[calc(100%-30px)] before:w-2 before:rounded-full before:bottom-1 before:top-4 pl-8 before:flex before:flex-col before:items-center before:justify-center hover:bg-slate-50 transition ease-in-out duration-200 dark:hover:bg-slate-800 <%= goal[:label_class] %>">
-  <div class="sm:col-span-3 col-span-1">
+  <div class="sm:col-span-3 col-span-1 mr-4">
     <p><%= goal.name %></p>
   </div>
-  <div class="sm:col-span-4 col-span-1">
+  <div class="sm:col-span-4 col-span-1 mr-4">
     <p><%= goal.description %></p>
   </div>
-  <div class="sm:col-span-1 col-span-1">
-    <p><%= goal.status %></p>
+  <div class="sm:col-span-1 col-span-1 mr-4">
+    <p><%= I18n.t("enum.statuses.#{goal.status}") %></p>
   </div>
   <div data-controller="dropdown" class="sm:col-span-1 relative col-span-1">
     <div class="flex justify-end">
