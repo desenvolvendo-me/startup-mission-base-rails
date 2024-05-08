@@ -21,6 +21,8 @@ module Manager
 
     def create
       @goal = Goal.new(goal_params)
+      @goal.client = current_user.client
+
       respond_to do |format|
         if @goal.save
           format.html do
