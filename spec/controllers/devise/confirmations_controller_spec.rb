@@ -20,5 +20,16 @@ RSpec.describe Devise::ConfirmationsController, type: :controller do
         expect(flash[:notice]).to eq(I18n.t('devise.confirmations.confirmed'))
       end
     end
+
+    context 'when confirmation fails' do
+      it 'redirects to the new user session path with an unconfirmed notice' do
+        allow(User).to receive(:confirm_by_token).with(confirmation_token).and_return(user)
+        allow(user.errors).to receive(:empty?).and_return(false)
+
+        get :show, params: { confirmation_token: confirmation_token }
+        expect(response).to redirect_to(new_user_session_path)
+        expect(flash[:notice]).to eq(I18n.t('devise.failure.unconfirmed'))
+      end
+    end
   end
 end
