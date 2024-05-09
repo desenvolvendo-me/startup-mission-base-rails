@@ -22,7 +22,7 @@
               <%= image_tag "https://source.unsplash.com/random/120x120/?dog", class: "w-8 h-8 rounded-full", alt: "Hound Pro" %>
               <div>
                 <p class="font-semibold"><%= @plan_name %></p>
-                <p class="text-slate-600 dark:text-slate-300">R$ <%= @amount / 100 %>/mo</p>
+               <p class="text-slate-600 dark:text-slate-300">R$ <%= @plan_amount %> /<%= @plan_interval %></p>
               </div>
             </div>
             <div>
@@ -34,7 +34,7 @@
         </div>
         <div>
           <h4 class="font-semibold text-base">Billing period</h4>
-          <p class="mb-3 text-slate-600 dark:text-slate-300">Monthly (renews August 30, 2023)</p>
+          <p class="mb-3 text-slate-600 dark:text-slate-300">Monthly (renews <%= @current_period_end %>)</p>
           <%= link_to "Change plan", pricing_path, class: "btn btn-white" %>
         </div>
       </div>
@@ -67,9 +67,10 @@
         </div>
       </div>
       <div>
-        <div class="flex items-center justify-between">
-          <p class="font-semibold">Recent invoices</p>
-          <%= link_to "View all", class: "text-sm text-slate-600 underline dark:text-slate-400" %>
+        <div>
+          <p class="font-semibold"><%= @plan_currency %></p>
+          <p class="font-semibold"><%= @plan_name %></p>
+          <p class="text-slate-600 dark:text-slate-300">R$ <%= number_to_currency(@amount_due, unit: "R$", separator: ",", delimiter: ".") %></p>
         </div>
         <table class="mt-3 text-left w-full">
           <tbody>
