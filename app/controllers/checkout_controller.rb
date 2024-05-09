@@ -4,7 +4,9 @@ class CheckoutController < ApplicationController
     user = current_user
     customer = user.client.update_stripe_customer
 
-    plan_id = get_plan_price_id(params[:plan])
+    plan_type = params[:plan]
+
+    plan_id = get_plan_price_id(plan_type)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -13,7 +15,7 @@ class CheckoutController < ApplicationController
                      quantity: 1,
                    }],
       mode: 'subscription',
-      success_url: checkout_success_url,
+      success_url: checkout_success_url + "?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: checkout_cancel_url,
     )
 
@@ -24,6 +26,7 @@ class CheckoutController < ApplicationController
     flash[:notice] = 'Pagamento concluído com sucesso!'
     render 'checkout/success'
   end
+
 
   def cancel
     flash[:alert] = 'O pagamento foi cancelado!'
