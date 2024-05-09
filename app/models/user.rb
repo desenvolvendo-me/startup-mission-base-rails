@@ -33,6 +33,8 @@
 class User < ApplicationRecord
   after_create :send_confirmation_instructions
 
+  has_one :client, dependent: :destroy
+
   has_person_name
   has_one_attached :avatar
 
@@ -52,5 +54,9 @@ class User < ApplicationRecord
 
   def send_password_change_notification?
     previous_changes.include?('encrypted_password') && persisted?
+  end
+
+  def full_name
+    "#{first_name} #{last_name}".strip
   end
 end
