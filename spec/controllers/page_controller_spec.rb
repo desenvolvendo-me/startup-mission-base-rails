@@ -109,8 +109,6 @@ RSpec.describe PageController, type: :controller do
     end
   end
 
-  # TODO: não funciona o ci sem os credentials.yml.enc (gerado) e master.key
-
   describe '#billing' do
     describe '#billing' do
       it 'renders the billing template' do
