@@ -111,27 +111,23 @@ RSpec.describe PageController, type: :controller do
 
   # TODO: não funciona o ci sem os credentials.yml.enc (gerado) e master.key
 
-  # describe '#billing' do
-  #   describe '#billing' do
-  #     before do
-  #       allow(Stripe).to receive(:api_key).and_return('test_api_key')
-  #     end
-  #
-  #     it 'renders the billing template' do
-  #       get :billing
-  #       expect(response).to render_template(:billing)
-  #     end
-  #
-  #     it 'assigns the recent invoices from Stripe' do
-  #       invoices = double('invoices')
-  #       allow(controller).to receive(:retrieve_recent_invoices_from_stripe)
-  #         .and_return(invoices)
-  #
-  #       get :billing
-  #       expect(assigns(:recent_invoices)).to eq(invoices)
-  #     end
-  #   end
-  # end
+  describe '#billing' do
+    describe '#billing' do
+      it 'renders the billing template' do
+        allow(Stripe::Invoice).to receive(:list)
+          .and_return(%w[invoice1 invoice2 invoice3 invoice4])
+        get :billing
+        expect(response).to render_template(:billing)
+      end
+
+      it 'assigns the recent invoices from Stripe' do
+        invoices = %w[invoice1 invoice2 invoice3 invoice4]
+        allow(Stripe::Invoice).to receive(:list).and_return(invoices)
+        get :billing
+        expect(assigns(:recent_invoices)).to eq(invoices)
+      end
+    end
+  end
 
   describe '#integrations' do
     it 'renders the integrations template' do
