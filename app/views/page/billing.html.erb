@@ -1,44 +1,8 @@
 <% content_for :body_classes, "text-slate-800 dark:bg-slate-900 dark:text-slate-100 bg-white" %>
 
-<%= render "shared/admin/nav", { header_title: "Billing" } %>
-
 <div class="bg-white border-b dark:bg-slate-800/50 dark:border-b dark:border-slate-700 px-4">
   <div class="container mx-auto sm:flex flex-wrap justify-between items-center">
-    <nav role="messages nav">
-      <ul
-        class="flex items-center justify-start sm:space-x-1 py-2 text-slate-600 sm:overflow-auto overflow-y-hidden scroll-smooth snap-start scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-gray-100/50 scrollbar-thumb-rounded">
-
-        <% if respond_to?(:admin_settings_path) %>
-          <li class="flex justify-center items-center sm:block">
-            <%= nav_link_to "Account", admin_settings_path, active_class: "py-2 px-4 bg-slate-50 dark:bg-slate-900 rounded-lg transition ease-in-out duration-300 text-prmary-600 dark:text-prmary-400 font-medium flex items-center space-x-2 dark:hover:bg-slate-900/80", inactive_class: "py-2 px-4 rounded-lg transition ease-in-out duration-300 hover:bg-slate-50 hover:text-prmary-600 dark:hover:text-prmary-400 font-medium flex items-center space-x-2 group dark:text-slate-300 dark:hover:bg-slate-900" %>
-          </li>
-        <% end %>
-
-        <% if respond_to?(:admin_notifications_path) %>
-          <li class="flex justify-center items-center sm:block">
-            <%= nav_link_to "Notifications", admin_notifications_path, active_class: "py-2 px-4 bg-slate-50 dark:bg-slate-900 rounded-lg transition ease-in-out duration-300 text-prmary-600 dark:text-prmary-400 font-medium flex items-center space-x-2 dark:hover:bg-slate-900/80", inactive_class: "py-2 px-4 rounded-lg transition ease-in-out duration-300 hover:bg-slate-50 hover:text-prmary-600 dark:hover:text-prmary-400 font-medium flex items-center space-x-2 group dark:text-slate-300 dark:hover:bg-slate-900" %>
-          </li>
-        <% end %>
-
-        <% if respond_to?(:admin_billing_path) %>
-          <li class="flex justify-center items-center sm:block">
-            <%= nav_link_to "Billing", admin_billing_path, active_class: "py-2 px-4 bg-slate-50 dark:bg-slate-900 rounded-lg transition ease-in-out duration-300 text-prmary-600 dark:text-prmary-400 font-medium flex items-center space-x-2 dark:hover:bg-slate-900/80", inactive_class: "py-2 px-4 rounded-lg transition ease-in-out duration-300 hover:bg-slate-50 hover:text-prmary-600 dark:hover:text-prmary-400 font-medium flex items-center space-x-2 group dark:text-slate-300 dark:hover:bg-slate-900" %>
-          </li>
-        <% end %>
-
-        <% if respond_to?(:admin_team_path) %>
-          <li class="flex justify-center items-center sm:block">
-            <%= nav_link_to "Team", admin_team_path, active_class: "py-2 px-4 bg-slate-50 dark:bg-slate-900 rounded-lg transition ease-in-out duration-300 text-prmary-600 dark:text-prmary-400 font-medium flex items-center space-x-2 dark:hover:bg-slate-900/80", inactive_class: "py-2 px-4 rounded-lg transition ease-in-out duration-300 hover:bg-slate-50 hover:text-prmary-600 dark:hover:text-prmary-400 font-medium flex items-center space-x-2 group dark:text-slate-300 dark:hover:bg-slate-900" %>
-          </li>
-        <% end %>
-
-        <% if respond_to?(:admin_integrations_path) %>
-          <li class="flex justify-center items-center sm:block">
-            <%= nav_link_to "Integrations", admin_integrations_path, active_class: "py-2 px-4 bg-slate-50 dark:bg-slate-900 rounded-lg transition ease-in-out duration-300 text-prmary-600 dark:text-prmary-400 font-medium flex items-center space-x-2 dark:hover:bg-slate-900/80", inactive_class: "py-2 px-4 rounded-lg transition ease-in-out duration-300 hover:bg-slate-50 hover:text-prmary-600 dark:hover:text-prmary-400 font-medium flex items-center space-x-2 group dark:text-slate-300 dark:hover:bg-slate-900" %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
+    <%= render "shared/settings/nav", { header_title: "Billing" } %>
   </div>
 </div>
 
@@ -67,35 +31,50 @@
                 Monthly</p>
             </div>
           </div>
-          <%= link_to "Manage plan", "#", class: "btn btn-white" %>
+
+          <div data-controller="modal">
+            <button type="button" data-action="click->modal#open" class="btn btn-white" tabindex="0">
+              Manager plan
+            </button>
+
+            <div
+              aria-labelledby="modal-title"
+              aria-modal="true"
+              data-action="keyup@window->modal#closeWithEsc"
+              data-modal-target="container"
+              class="hidden fixed inset-0 z-50 overflow-y-auto"
+              role="dialog"
+            >
+              <div class="h-screen w-full relative flex items-center justify-center">
+                <div
+                  data-modal-target="content"
+                  data-transition-enter-active="transition ease-out duration-300"
+                  data-transition-enter-from="transform opacity-0 scale-95"
+                  data-transition-enter-to="transform opacity-100 scale-100"
+                  data-transition-leave-active="transition ease-in duration-300"
+                  data-transition-leave-from="transform opacity-100 scale-100"
+                  data-transition-leave-to="transform opacity-0 scale-95"
+                  class="hidden rounded shadow-xl max-w-lg bg-white m-1 p-8 prose origin-bottom mx-auto dark:bg-slate-700 dark:text-slate-200">
+                  <h2 id="modal-title" class="dark:text-slate-100">Manager plan</h2>
+                  <p><%= render 'shared/modal_plans'%>
+                  <div class="flex justify-end items-center flex-wrap space-x-4">
+                    <button class="btn btn-primary" data-action="click->modal#close">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div>
           <h4 class="font-semibold text-base">Billing period</h4>
           <p class="mb-3 text-slate-600 dark:text-slate-300">Monthly (renews August 30, 2023)</p>
-          <%= link_to "Change period", "#", class: "btn btn-white" %>
-        </div>
-      </div>
-
-      <div class="my-10">
-        <h4 class="font-semibold text-lg">Seats</h4>
-        <h5 class="font-semibold text-base my-3 dark:text-slate-300">Remaining seats</h5>
-        <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5 my-3">
-          <div class="bg-prmary-600 h-2.5 rounded-full" style="width: 50%"></div>
-        </div>
-
-        <p class="my-3"><span
-            class="rounded bg-neutral-100 text-neutral-800 dark:bg-slate-700 dark:text-slate-300 px-2 py-1 text-sm font-semibold">5</span>
-          of 10 seats
-          used</p>
-        <div class="flex items-center justify-end space-x-4">
-          <%= link_to "Manage seats", "#", class: "btn btn-white" %>
-          <%= link_to "Manage team", "#", class: "btn btn-white" %>
+          <%= link_to "Change period", pricing_path, class: "btn btn-white" %>
         </div>
       </div>
     </div>
 
-
-    <h4 class="font-semibold text-xl tracking-tight text-slate-800 mb-6 dark:text-slate-100">Billing details</h4>
+    <h4 class="mt-10 font-semibold text-xl tracking-tight text-slate-800 mb-6 dark:text-slate-100">Billing details</h4>
     <p class="py-2 mb-6 text-slate-600 dark:text-slate-300">Most recent saved payment method on file.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -129,34 +108,15 @@
         </div>
         <table class="mt-3 text-left w-full">
           <tbody>
+          <% @recent_invoices.each do |invoice| %>
             <tr>
               <td class="pr-2 py-2">
-                <%= link_to "Invoice #1103", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
+                <%= link_to "Invoice ##{invoice.number}", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
               </td>
-              <td class="pr-2 py-2">June 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
+              <td class="pr-2 py-2"><%= Time.at(invoice.created).to_date.strftime("%B %d, %Y") %></td>
+              <td class="pr-2 py-2 text-right">$<%= invoice.amount_due / 100.0 %></td>
             </tr>
-            <tr>
-              <td class="pr-2 py-2">
-                <%= link_to "Invoice #1102", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
-              </td>
-              <td class="pr-2 py-2">May 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
-            </tr>
-            <tr>
-              <td class="pr-2 py-2">
-                <%= link_to "Invoice #1101", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
-              </td>
-              <td class="pr-2 py-2">April 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
-            </tr>
-            <tr>
-              <td class="pr-2 py-2">
-                <%= link_to "Invoice #1100", "#", class: "hover:text-prmary-600 font-medium underline text-slate-600 dark:text-slate-400 dark:hover:text-prmary-400" %>
-              </td>
-              <td class="pr-2 py-2">March 1, 2023</td>
-              <td class="pr-2 py-2 text-right">$103.23</td>
-            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>

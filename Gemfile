@@ -30,6 +30,7 @@ gem 'simple_form'
 gem 'simple_form-tailwind'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem 'stripe'
 gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data',

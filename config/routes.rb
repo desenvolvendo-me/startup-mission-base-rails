@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   get 'about', to: 'page#about'
 	get 'pricing', to: 'page#pricing'
   get 'faq', to: 'page#faq'
+  get 'billing', to: 'page#billing'
+  get 'integrations', to: 'page#integrations'
+  get 'team', to: 'page#team'
+  get 'settings', to: 'page#settings'
+  get 'activity', to: 'page#activity'
+  get 'notifications', to: 'page#notifications'
   if Rails.env.development? || Rails.env.test?
     mount Railsui::Engine, at: "/railsui"
   end
@@ -65,4 +71,9 @@ Rails.application.routes.draw do
     get '', to: 'home#index', as: :home
     get 'stimulus', to: 'home#stimulus', as: :stimulus
   end
+
+  #checout stripe
+  post 'checkout', to: 'checkout#create', as: 'checkout'
+  get 'checkout/success', to: 'checkout#success', as: 'checkout_success'
+  get 'checkout/cancel', to: 'checkout#cancel', as: 'checkout_cancel'
 end
