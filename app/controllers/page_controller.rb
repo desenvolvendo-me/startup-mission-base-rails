@@ -1,5 +1,7 @@
 # app/controllers/page_controller.rb
+require_relative '././../businesses/gateways/stripe_gateway'
 class PageController < ApplicationController
+  before_action :set_stripe_gateway
   before_action :set_recent_invoices, only: [:billing]
 
   def activity
@@ -56,10 +58,13 @@ class PageController < ApplicationController
       subscription_id = first_invoice.subscription
 
       if subscription_id.present?
-        subscription = retrieve_subscription(subscription_id)
-        @plan_name, @plan_interval, @plan_amount = retrieve_plan_details(subscription)
+        subscription = @stripe_gateway.retrieve_subscription(subscription_id)
+        plan_details = @stripe_gateway.retrieve_plan_details(subscription)
+        @plan_name = plan_details[:name]
+        @plan_interval = plan_details[:interval]
+        @plan_amount = plan_details[:amount]
         @plan_currency = subscription.currency.upcase
-        @current_period_end = format_time(subscription.current_period_end)
+        @current_period_end = @stripe_gateway.format_time(subscription.current_period_end)
       else
         set_default_plan_details
       end
@@ -79,44 +84,12 @@ class PageController < ApplicationController
 
   private
 
+  def set_stripe_gateway
+    @stripe_gateway = StripeGateway.new
+  end
+
   def set_recent_invoices
-    @recent_invoices = retrieve_recent_invoices_from_stripe
-  end
-
-  def retrieve_recent_invoices_from_stripe
-    Stripe::Invoice.list(limit: 4).data
-  rescue Stripe::StripeError => e
-    Rails.logger.error("Stripe Error: #{e.message}")
-    []
-  end
-
-  def retrieve_subscription(subscription_id)
-    Stripe::Subscription.retrieve(subscription_id)
-  rescue Stripe::StripeError => e
-    Rails.logger.error("Stripe Error: #{e.message}")
-    nil
-  end
-
-  def retrieve_plan_details(subscription)
-    if subscription.items.data.any?
-      plan = subscription.items.data.first.plan
-      product = Stripe::Product.retrieve(plan.product)
-      plan_name = product.name
-      plan_interval = plan.interval
-      plan_amount = plan.amount / 100.0  # Converte de centavos para unidades monetárias
-      [plan_name, plan_interval, plan_amount]
-    else
-      ["Desconhecido", "Desconhecido", "Indisponível"]
-    end
-  rescue Stripe::StripeError => e
-    Rails.logger.error("Stripe Error: #{e.message}")
-    ["Erro ao recuperar o plano", "Desconhecido", "Indisponível"]
-  end
-
-  def format_time(timestamp)
-    Time.at(timestamp).strftime("%d de %B, %Y")
-  rescue
-    "Indisponível"
+    @recent_invoices = @stripe_gateway.retrieve_recent_invoices
   end
 
   def set_default_plan_details
