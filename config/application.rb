@@ -31,6 +31,7 @@ module StartupMissionBaseRails
     config.i18n.locale = 'pt-BR'
 
 
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Configuration for the application, engines, and railties goes here.
     #

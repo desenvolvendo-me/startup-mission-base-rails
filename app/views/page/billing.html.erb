@@ -34,7 +34,7 @@
         </div>
         <div>
           <h4 class="font-semibold text-base">Billing period</h4>
-          <p class="mb-3 text-slate-600 dark:text-slate-300">Monthly (renews <%= @current_period_end %>)</p>
+          <p class="mb-3 text-slate-600 dark:text-slate-300"><%= @plan_interval %>  (<%= @current_period_end %>)</p>
           <%= link_to "Change plan", pricing_path, class: "btn btn-white" %>
         </div>
       </div>
