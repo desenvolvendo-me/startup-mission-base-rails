@@ -9,6 +9,11 @@ if Rails.env.development?
   client_1 = Client.create(document: '81939120047', user: user_1)
   client_2 = Client.create(document: '66778473061', user: user_2)
 
+  user_1.client = client_1
+  user_1.save
+  user_2.client = client_2
+  user_2.save
+
   user_1.avatar.attach(io: File.open(
     Rails.root.join('spec', 'support', 'images', 'avatar-1.jpg')),
                        filename: 'avatar-1', content_type: 'image/jpg')

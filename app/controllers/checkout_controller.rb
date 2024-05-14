@@ -3,7 +3,6 @@ class CheckoutController < ApplicationController
   def create
     plan_id = get_plan_price_id(params[:plan])
     mode = params[:payment_type]
-    puts "plan_id #{plan_id}"
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -34,7 +33,7 @@ class CheckoutController < ApplicationController
   def get_plan_price_id(plan_type)
     case plan_type
     when 'startup'
-      'price_1P9dyVRpXIS2OKDB32fpKBJy'  # Substitua pelo seu Price ID real do Stripe
+      'price_1P9dyVRpXIS2OKDB32fpKBJy'
     when 'professional'
       'price_1P9dqJRpXIS2OKDBsXqKCdr1'
     when 'premium'

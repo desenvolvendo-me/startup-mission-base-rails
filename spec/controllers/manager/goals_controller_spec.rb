@@ -2,13 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Manager::GoalsController,
                type: :controller do
-  let(:goal) { create(:goal) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:client) { create(:client, user: user) }
+  let(:goal) { create(:goal, client: client) }
+  let(:goals) { create_list(:goal, 3, client: client) }
   let(:valid_attributes) do
-    { name: 'New name',
-      description: 'New description' }
+    {
+      name: 'New name',
+      description: 'New description',
+      client: client
+    }
   end
   let(:invalid_attributes) do
     { name: '', description: '' }
+  end
+
+  before(:each) do
+    allow_any_instance_of(InternalController)
+      .to receive(:authenticate_user!).and_return(true)
+    allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(user)
   end
 
   describe 'GET #index' do

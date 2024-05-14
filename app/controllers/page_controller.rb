@@ -47,8 +47,6 @@ class PageController < ApplicationController
 
   def faq; end
 
-  def billing; end
-
   def integrations; end
 
   def team; end
