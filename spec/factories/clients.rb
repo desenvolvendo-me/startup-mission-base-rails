@@ -14,6 +14,7 @@
 #
 FactoryBot.define do
   factory :client do
-    document { 'MyString' }
+    document { FFaker::IdentificationBR.pretty_cpf }
+    association :user, factory: :user
   end
 end

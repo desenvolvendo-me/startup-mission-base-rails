@@ -14,4 +14,8 @@
 #
 class Client < ApplicationRecord
   belongs_to :user
+
+  validates :document, presence: true
+
+  has_many :goals, dependent: :destroy
 end
