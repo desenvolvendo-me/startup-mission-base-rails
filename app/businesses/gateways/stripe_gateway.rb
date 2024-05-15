@@ -1,6 +1,6 @@
 class StripeGateway
   def initialize
-    Stripe.api_key = 'sk_test_51P9d1QRpXIS2OKDBrEMLIlyZrzSzFZ24pv0fLd5NVN8f3LEqfiClhBe4fovT6qKe5t93BgfLxXWoYKU74f51ImTW008kuLZObQ'
+    Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret_key)
   end
 
   def retrieve_recent_invoices(limit = 4)

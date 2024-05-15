@@ -32,6 +32,7 @@ module StartupMissionBaseRails
 
 
     config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/app/gateways)
 
     # Configuration for the application, engines, and railties goes here.
     #
