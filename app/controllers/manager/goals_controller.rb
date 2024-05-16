@@ -1,8 +1,5 @@
 module Manager
   class GoalsController < InternalController
-    before_action :set_goal,
-                  only: %i[show edit update
-                           destroy]
 
     def index
       @q = Goal.ransack(params[:q])
@@ -21,6 +18,8 @@ module Manager
 
     def create
       @goal = Goal.new(goal_params)
+      @goal.client = current_user.client
+
       respond_to do |format|
         if @goal.save
           format.html do
@@ -64,15 +63,12 @@ module Manager
 
     private
 
-    def set_goal
-      @goal = Goal.find(params[:id])
-    end
-
     def goal_params
       params.require(:goal).permit(:name,
                                    :description, :status,
                                    tasks_attributes:
                                      %i[id name description status _destroy])
     end
+
   end
 end

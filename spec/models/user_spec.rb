@@ -33,5 +33,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # Associações
+  it { should have_one(:client) }
+  it { should have_one_attached(:avatar) }
+
+  # Validações
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password) }
 end

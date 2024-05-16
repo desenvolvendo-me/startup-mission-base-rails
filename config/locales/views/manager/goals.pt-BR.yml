@@ -2,11 +2,13 @@ pt-BR:
   manager:
     goals:
       index:
+        title: 'Metas'
         search: 'Pesquisar'
         add: "Cadastrar meta"
         filter_by: 'Filtrar'
         filter_1: 'Concluídas'
         filter_2: 'Não concluídas'
+        show: 'Mostrar'
         actions: 'Ações'
         action_1: 'Finalizar'
         pages:
@@ -19,10 +21,12 @@ pt-BR:
         add: 'Criar meta'
         back: 'Voltar'
         save: 'Salvar'
+        last: 'Metas'
       edit:
         title: 'Editando meta'
         save: 'Salvar'
         show: 'Mostrar'
+        last: 'Metas'
       show:
         title: 'Detalhando meta'
         edit: 'Editar'
@@ -31,6 +35,7 @@ pt-BR:
         done: 'Finalizar'
         delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
+        last: 'Metas'
       goal:
         show: 'Mostrar'
         edit: 'Editar'

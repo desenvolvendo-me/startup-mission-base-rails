@@ -20,7 +20,6 @@ class Client < ApplicationRecord
 
   def update_stripe_customer
     begin
-      # Use aqui o nome completo formatado diretamente
       customer_name = [user.first_name, user.last_name].compact.join(' ').strip
       if stripe_customer_id.blank?
         customer = Stripe::Customer.create(email: user.email, name: customer_name)
@@ -30,10 +29,8 @@ class Client < ApplicationRecord
       end
     rescue Stripe::StripeError => e
       Rails.logger.error "Stripe error: #{e.message}"
-      nil # Retorna nil ou lida de outra forma adequada
+      nil 
     end
     customer
   end
-
-
 end

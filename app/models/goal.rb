@@ -18,6 +18,8 @@ class Goal < ApplicationRecord
   enum status: { backlog: 'backlog', todo: 'todo', block: 'block',
                  doing: 'doing', done: 'done' }
 
+  belongs_to :client
+
   validates :name, presence: true
 
   accepts_nested_attributes_for :tasks, allow_destroy: true,

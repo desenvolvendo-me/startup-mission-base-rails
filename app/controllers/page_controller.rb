@@ -1,4 +1,3 @@
-# app/controllers/page_controller.rb
 require_relative '././../businesses/gateways/stripe_gateway'
 class PageController < ApplicationController
   before_action :set_stripe_gateway
