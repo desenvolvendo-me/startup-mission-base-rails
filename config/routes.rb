@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  resources :posts
 	get 'admin/integrations', to: 'page#integrations'
 	get 'admin/team', to: 'page#team'
 	get 'admin/billing', to: 'page#billing'
@@ -57,8 +58,8 @@ Rails.application.routes.draw do
     resources :goals
     namespace :goals do
       namespace :done do
-        post :index
-        post :show
+        get :index
+        get :show
         post :many
       end
     end
