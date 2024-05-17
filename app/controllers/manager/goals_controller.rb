@@ -1,5 +1,6 @@
 module Manager
   class GoalsController < InternalController
+    before_action :set_goal, only: %i[show edit update destroy]
 
     def index
       @q = Goal.ransack(params[:q])
@@ -70,5 +71,10 @@ module Manager
                                      %i[id name description status _destroy])
     end
 
+    def set_goal
+      @goal = Goal.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to(manager_goals_path, alert: 'Goal not found')
+    end
   end
 end
