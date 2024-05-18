@@ -11,6 +11,7 @@ module StartupMissionBaseRails
     config.generators do |g|
       g.template_engine :railsui
       g.fallbacks[:railsui] = :erb
+
     end
 
     config.to_prepare do
@@ -28,6 +29,10 @@ module StartupMissionBaseRails
     # Specify location below
     config.i18n.default_locale = 'pt-BR'
     config.i18n.locale = 'pt-BR'
+
+
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/app/gateways)
 
     # Configuration for the application, engines, and railties goes here.
     #

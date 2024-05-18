@@ -19,42 +19,59 @@
 <div class="container mx-auto px-4 pt-6">
   <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-4 border-b border-slate-100  dark:border-slate-800">
     <div class="font-semibold text-slate-700 dark:text-slate-200">Plans</div>
-    <div class="lg:block hidden font-semibold text-slate-700 dark:text-slate-200">Startup</div>
     <div class="lg:block hidden font-semibold text-slate-700 dark:text-slate-200">Professional</div>
     <div class="lg:block hidden font-semibold text-slate-700 dark:text-slate-200">Premium</div>
   </div>
 
+<!--  Preco mensal-->
   <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 justify-between py-8">
     <div class="lg:block hidden">
-      <p class="text-slate-700 dark:text-slate-200">Pricing</p>
-    </div>
-    <div>
-      <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Startup</p>
-      <p class="font-extrabold text-slate-900 text-4xl dark:text-slate-200">$49<span class="text-sm font-normal text-slate-500 dark:text-slate-400">/mo</span>
-      </p>
-      <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
-        Cras justo odio, dapibus ac facilisis in, egestas eget.
-      </p>
-      <%= button_to "Mensal", checkout_path, params: { plan: 'startup', payment_type: 'subscription' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
+      <p class="text-slate-700 dark:text-slate-200">Pricing Monthly</p>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Professional</p>
-      <p class="font-extrabold text-slate-900 text-4xl dark:text-slate-200">$99<span class="text-sm font-normal text-slate-500 dark:text-slate-400">/mo</span>
+      <p class="font-extrabold text-slate-900 text-4xl dark:text-slate-200">R$99<span class="text-sm font-normal text-slate-500 dark:text-slate-400">/mo</span>
       </p>
       <p class="text-slate-700 leading-tight my-4 dark:text-slate-300">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= button_to "Anual", checkout_path, params: { plan: 'professional', payment_type: 'subscription' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
+      <%= button_to "Mensal", checkout_path, params: { plan: 'professional_montlhy'}, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
     <div>
       <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Premium</p>
-      <p class="font-extrabold text-slate-900 dark:text-slate-100 text-4xl">$199<span
+      <p class="font-extrabold text-slate-900 dark:text-slate-100 text-4xl">R$199<span
         class="text-sm font-normal text-slate-500">/mo</span>
       </p>
       <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
         Cras justo odio, dapibus ac facilisis in, egestas eget.
       </p>
-      <%= button_to "Vitalício", checkout_path, params: { plan: 'premium', payment_type: 'payment' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
+      <%= button_to "Mensal", checkout_path, params: { plan: 'premium_montlhy' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
+    </div>
+  </div>
+
+<!--  preco anual-->
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 justify-between py-8">
+    <div class="lg:block hidden">
+      <p class="text-slate-700 dark:text-slate-200">Pricing Yearly</p>
+    </div>
+    <div>
+      <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Professional</p>
+      <p class="font-extrabold text-slate-900 text-4xl dark:text-slate-200">R$49<span class="text-sm font-normal text-slate-500 dark:text-slate-400">/mo</span>
+      </p>
+      <p class="text-slate-700 leading-tight my-4 dark:text-slate-300">
+        Cras justo odio, dapibus ac facilisis in, egestas eget.
+      </p>
+      <%= button_to "Anual", checkout_path, params: { plan: 'professional_yearly'}, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
+    </div>
+    <div>
+      <p class="lg:hidden block font-semibold text-slate-700 dark:text-slate-200">Premium</p>
+      <p class="font-extrabold text-slate-900 dark:text-slate-100 text-4xl">R$100<span
+        class="text-sm font-normal text-slate-500">/mo</span>
+      </p>
+      <p class="text-slate-700 dark:text-slate-200 leading-tight my-4">
+        Cras justo odio, dapibus ac facilisis in, egestas eget.
+      </p>
+      <%= button_to "Anual", checkout_path, params: { plan: 'premium_yearly' }, method: :post, data: { turbo: false }, class: "btn btn-primary w-full" %>
     </div>
   </div>
 
@@ -65,16 +82,6 @@
       <ul class="list-none grid grid-cols-3 lg:grid-cols-4 lg:gap-10 gap-4 items-center lg:px-4">
         <li class="lg:col-span-1 col-span-3">
           Justo magna vestibulum
-        </li>
-        <li class="flex justify-center items-center">
-          <div class="flex items-center">
-            <svg class="fill-current text-green-500 w-4 h-4 flex-shrink-0" width="16" height="12" viewBox="0 0 16 12"
-                 fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M0.707106 7.10711C0.316582 6.71658 0.316583 6.08342 0.707107 5.69289L0.892893 5.50711C1.28342 5.11658 1.91658 5.11658 2.30711 5.50711L5.6 8.8L13.6929 0.707108C14.0834 0.316583 14.7166 0.316583 15.1071 0.707107L15.2929 0.892893C15.6834 1.28342 15.6834 1.91658 15.2929 2.30711L5.6 12L0.707106 7.10711Z" />
-            </svg>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
         </li>
         <li class="flex justify-center items-center">
           <div class="flex items-center">
@@ -95,12 +102,6 @@
         <li class="lg:col-span-1 col-span-3">
           Magna parturient aenean
         </li>
-        <li class="flex justify-center items-center">
-          <div class="flex items-center">
-            <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
-        </li>
         <li class="flex justify-center">
           <div class="flex items-center">
             <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
@@ -119,12 +120,6 @@
       <ul class="list-none grid lg:grid-cols-4 grid-cols-3 lg:gap-10 gap-4 items-center lg:px-4">
         <li class="col-span-3 lg:col-span-1">
           Nullam id dolor id nibh ultricies vehicula ut id elit.
-        </li>
-        <li class="flex justify-center">
-          <div class="flex justify-center items-center">
-            <%= icon "minus", classes: "w-4 h-4 flex-shrink-0 text-slate-400", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
         </li>
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
@@ -147,12 +142,6 @@
         </li>
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
-            <%= icon "minus", classes: "w-4 h-4 flex-shrink-0 text-slate-400", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
-        </li>
-        <li class="flex justify-center">
-          <div class="flex items-center justify-center">
             <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
             <span class="block lg:hidden w-full ml-2">Pro</span>
           </div>
@@ -169,12 +158,6 @@
       <ul class="list-none grid lg:grid-cols-4 grid-cols-3 lg:gap-10 gap-4 items-center lg:px-4">
         <li class="lg:col-span-1 col-span-3">
           Inceptos cursus risus ligula
-        </li>
-        <li class="flex justify-center">
-          <div class="flex justify-center items-center">
-            <%= icon "minus", classes: "w-4 h-4 flex-shrink-0 text-slate-400", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
         </li>
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
@@ -203,12 +186,6 @@
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
             <%= icon "minus", classes: "w-4 h-4 flex-shrink-0 text-slate-400", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
-        </li>
-        <li class="flex justify-center">
-          <div class="flex items-center justify-center">
-            <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
             <span class="block lg:hidden w-full ml-2">Pro</span>
           </div>
         </li>
@@ -224,12 +201,6 @@
       <ul class="lg:px-4 list-none grid lg:grid-cols-4 grid-cols-3 lg:gap-10 gap-4 items-center">
         <li class="lg:col-span-1 col-span-3">
           Magna parturient aenean
-        </li>
-        <li class="flex justify-center">
-          <div class="flex items-center justify-center">
-            <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
         </li>
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
@@ -253,12 +224,6 @@
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
             <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
-        </li>
-        <li class="flex justify-center">
-          <div class="flex items-center justify-center">
-            <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
             <span class="block lg:hidden w-full ml-2">Pro</span>
           </div>
         </li>
@@ -274,12 +239,6 @@
       <ul class="lg:px-4 list-none grid lg:grid-cols-4 grid-cols-3 lg:gap-10 gap-4 items-center">
         <li class="lg:col-span-1 col-span-3">
           Ornare tortor magna
-        </li>
-        <li class="flex justify-center">
-          <div class="flex items-center justify-center">
-            <%= icon "check", classes: "w-4 h-4 flex-shrink-0 text-green-500", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
         </li>
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
@@ -303,12 +262,6 @@
         <li class="flex justify-center">
           <div class="flex items-center justify-center">
             <%= icon "minus", classes: "w-4 h-4 flex-shrink-0 text-slate-400", variant: :solid %>
-            <span class="block lg:hidden w-full ml-2">Startup</span>
-          </div>
-        </li>
-        <li class="flex justify-center">
-          <div class="flex items-center justify-center">
-            <%= icon "minus", classes: "w-4 h-4 flex-shrink-0 text-slate-400", variant: :solid %>
             <span class="block lg:hidden w-full ml-2">Pro</span>
           </div>
         </li>
@@ -325,13 +278,10 @@
   <ul class="list-none hidden lg:grid grid-cols-1 lg:grid-cols-4 lg:gap-10 gap-4 items-center pt-6 mb-6">
     <li></li>
     <li>
-      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'startup' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
+      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional_montlhy' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
     </li>
     <li>
-      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'professional' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
-    </li>
-    <li>
-      <%= button_to "Try Professional for free", checkout_path, params: { plan: 'premium' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
+      <%= button_to "Try premium for free", checkout_path, params: { plan: 'premium_montlhy' }, method: :post, class: "btn btn-primary w-full", data: { turbo: false } %>
     </li>
   </ul>
 </div>

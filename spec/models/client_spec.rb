@@ -2,11 +2,14 @@
 #
 # Table name: clients
 #
-#  id         :bigint           not null, primary key
-#  document   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint
+#  id                   :bigint           not null, primary key
+#  current_period_end   :datetime
+#  current_period_start :datetime
+#  document             :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  stripe_customer_id   :string
+#  user_id              :bigint
 #
 # Indexes
 #

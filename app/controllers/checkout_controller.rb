@@ -1,45 +1,38 @@
-# app/controllers/checkouts_controller.rb
-class CheckoutController < ApplicationController
-  def create
-    plan_id = get_plan_price_id(params[:plan])
-    mode = params[:payment_type]
 
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
-        price: plan_id,
-        quantity: 1
-      }],
-      mode: mode,
-      success_url: checkout_success_url,
-      cancel_url: checkout_cancel_url
+require_relative './../businesses/gateways/stripe_gateway'
+class CheckoutController < ApplicationController
+  before_action :set_stripe_gateway
+
+  def create
+    user = current_user
+    plan_type = params[:plan]
+
+    session = @stripe_gateway.create_checkout_session(
+      user,
+      plan_type,
+      checkout_success_url,
+      checkout_cancel_url
     )
 
-    redirect_to session.url, allow_other_host: true
+    if session
+      redirect_to session.url, allow_other_host: true
+    else
+      flash[:error] = "Houve um problema ao criar a sessão de checkout."
+      redirect_to pricing_path
+    end
   end
 
   def success
-    flash[:notice] = 'Pagamento concluído com sucesso!'
     render 'checkout/success'
   end
 
   def cancel
-    flash[:alert] = 'O pagamento foi cancelado!'
     render 'checkout/cancel'
   end
 
   private
 
-  def get_plan_price_id(plan_type)
-    case plan_type
-    when 'startup'
-      'price_1P9dyVRpXIS2OKDB32fpKBJy'
-    when 'professional'
-      'price_1P9dqJRpXIS2OKDBsXqKCdr1'
-    when 'premium'
-      'price_1P9dnjRpXIS2OKDBoqfghETT'
-    else
-      raise "Plano desconhecido: #{plan_type}"
-    end
+  def set_stripe_gateway
+    @stripe_gateway = StripeGateway.new
   end
 end
