@@ -1,5 +1,20 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  if Rails.env.development? || Rails.env.test?
+    mount Railsui::Engine, at: "/railsui"
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
+  root 'page#homepage'
+  devise_for :users
+  devise_for :admin_users,
+             ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  mount Sidekiq::Web => '/sidekiq'
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+
   resources :posts
 	get 'admin/integrations', to: 'page#integrations'
 	get 'admin/team', to: 'page#team'
@@ -26,23 +41,6 @@ Rails.application.routes.draw do
   get 'settings', to: 'page#settings'
   get 'activity', to: 'page#activity'
   get 'notifications', to: 'page#notifications'
-  if Rails.env.development? || Rails.env.test?
-    mount Railsui::Engine, at: "/railsui"
-  end
-
-  # Inherits from Railsui::PageController#index
-  # To overide, add your own page#index view or change to a new root
-  # Visit the start page for Rails UI any time at /railsui/start
-  root action: :index, controller: "railsui/page"
-
-  devise_for :users
-  mount Sidekiq::Web => '/sidekiq'
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-  mount Rswag::Ui::Engine => '/api-docs'
-  mount Rswag::Api::Engine => '/api-docs'
-  devise_for :admin_users,
-             ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 
   namespace :api do
     namespace :goals do
