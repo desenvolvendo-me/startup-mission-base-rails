@@ -45,3 +45,5 @@ dump.rdb
 /node_modules
 *_old
 *.yml.enc
+
+db/schema.rb
