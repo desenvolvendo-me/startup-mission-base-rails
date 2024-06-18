@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  root 'page#homepage'
+  root 'external/home#index'
   devise_for :users
   devise_for :admin_users,
              ActiveAdmin::Devise.config
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 	get 'admin/project', to: 'page#project'
 	get 'admin/projects', to: 'page#projects'
 	get 'admin/dashboard', to: 'page#dashboard'
-  get 'homepage', to: 'page#homepage'
+
   get 'about', to: 'page#about'
 	get 'pricing', to: 'page#pricing'
   get 'faq', to: 'page#faq'
